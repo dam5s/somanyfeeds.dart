@@ -1,4 +1,4 @@
-.PHONY: install check dev
+.PHONY: damo_io_server/install damo_io_server/check damo_io_server/dev
 
 damo_io_server/install:
 	cd damo_io_server; dart pub get
