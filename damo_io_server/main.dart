@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:damo_io_server/async_support/background_runner.dart';
-import 'package:damo_io_server/feeds_processing/feeds_processor.dart';
+import 'package:damo_io_server/feed_processing/feeds_processor.dart';
 import 'package:dart_frog/dart_frog.dart';
 
 final _backgroundRunner = BackgroundRunner();

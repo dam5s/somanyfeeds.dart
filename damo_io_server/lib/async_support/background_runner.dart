@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'async_compute.dart';
 
-class BackgroundRunner {
+final class BackgroundRunner {
   BackgroundRunner({AsyncCompute? asyncCompute})
       : asyncCompute = asyncCompute ?? IsolateAsyncCompute();
 

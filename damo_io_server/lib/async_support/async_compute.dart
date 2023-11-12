@@ -5,7 +5,7 @@ abstract class AsyncCompute {
   Future<R> compute<M, R>(FutureOr<R> Function(M param) callback, M message, {String? debugLabel});
 }
 
-class IsolateAsyncCompute implements AsyncCompute {
+final class IsolateAsyncCompute implements AsyncCompute {
   @override
   Future<R> compute<M, R>(
     FutureOr<R> Function(M param) callback,

@@ -6,7 +6,7 @@ import 'package:test/test.dart';
 
 import '../../../routes/hello/[name].dart' as route;
 
-class _MockRequestContext extends Mock implements RequestContext {}
+final class _MockRequestContext extends Mock implements RequestContext {}
 
 void main() {
   test('GET /hello/world', () {
