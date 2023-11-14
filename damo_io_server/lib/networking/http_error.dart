@@ -14,8 +14,7 @@ final class HttpUnexpectedStatusCodeError implements HttpError {
 }
 
 extension HttpErrorMessage on HttpError {
-  String message() =>
-      switch (this) {
+  String message() => switch (this) {
         HttpConnectionError() => 'There was an error connecting',
         HttpUnexpectedStatusCodeError() => 'Unexpected response from api',
       };

@@ -11,7 +11,6 @@ final class ParsedArticle {
   final String content;
   final DateTime publishedAt;
 
-
   ParsedArticle({
     required this.url,
     required this.title,

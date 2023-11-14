@@ -19,8 +19,11 @@ final class FeedParsingError {
 
 enum FeedType { Rss, Atom }
 
-abstract class RawFeed {
-  String content();
+final class RawFeed {
+  final String url;
+  final String content;
+
+  RawFeed({required this.url, required this.content});
 }
 
 abstract class FeedParser {
