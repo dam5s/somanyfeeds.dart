@@ -7,16 +7,16 @@ import 'package:test/test.dart';
 
 void main() {
 
-  Future<FeedParsingResult> _parseFile(String path, String url) async {
-    final file_content = await File(path).readAsString();
-    final raw_feed = RawFeed(url: url, content: file_content);
-    return RssParser().parse(raw_feed);
+  Future<FeedParsingResult> parseFile(String path, String url) async {
+    final fileContent = await File(path).readAsString();
+    final rawFeed = RawFeed(url: url, content: fileContent);
+    return RssParser().parse(rawFeed);
   }
 
   test('parsing mastodon rss', () async {
-    final file_path = 'test/feed_parsing/mastodon.rss';
-    final file_url = 'file://$file_path';
-    final result = await _parseFile(file_path, file_url);
+    final filePath = 'test/feed_parsing/mastodon.rss';
+    final fileUrl = 'file://$filePath';
+    final result = await parseFile(filePath, fileUrl);
 
     expect(result.isOk(), equals(true));
 
@@ -35,9 +35,9 @@ void main() {
   });
 
   test('parsing blog rss', () async {
-    final file_path = 'test/feed_parsing/blog.xml';
-    final file_url = 'file://$file_path';
-    final result = await _parseFile(file_path, file_url);
+    final filePath = 'test/feed_parsing/blog.xml';
+    final fileUrl = 'file://$filePath';
+    final result = await parseFile(filePath, fileUrl);
 
     expect(result.isOk(), equals(true));
 

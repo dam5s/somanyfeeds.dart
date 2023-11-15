@@ -6,6 +6,7 @@ import 'package:intl/intl.dart';
 import 'feed_parser.dart';
 
 final class RssParser extends FeedParser {
+  @override
   FeedParsingResult parse(RawFeed feed) {
     final rss = RssFeed.parse(feed.content);
     final parsedArticles = rss.items.map(_buildArticle);

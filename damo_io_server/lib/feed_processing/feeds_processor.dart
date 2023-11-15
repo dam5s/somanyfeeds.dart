@@ -46,7 +46,7 @@ final class FeedsProcessor {
           case Ok(value: final feed):
             await _persistFeedResult(feed);
           case Err(:final error):
-            _logger.e('Error processing feed ${feed}', error: error);
+            _logger.e('Error processing feed $feed', error: error);
         }
       }
     });
@@ -57,7 +57,7 @@ final class FeedsProcessor {
 
     switch (downloadResult) {
       case Ok(value: final download):
-        FeedParsingResult? overallResult = null;
+        FeedParsingResult? overallResult;
 
         for (final p in _parsers) {
           final processorResult = p.parse(download);

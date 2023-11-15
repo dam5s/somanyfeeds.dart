@@ -17,7 +17,7 @@ final class FeedParsingError {
   }
 }
 
-enum FeedType { Rss, Atom }
+enum FeedType { rss, atom }
 
 final class RawFeed {
   final String url;
