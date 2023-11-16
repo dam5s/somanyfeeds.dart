@@ -9,7 +9,6 @@ import 'package:damo_io_server/feeds/feed_record.dart';
 import 'package:damo_io_server/feeds/feeds_repository.dart';
 import 'package:damo_io_server/networking/http_client_provider.dart';
 import 'package:damo_io_server/prelude/result.dart';
-import 'package:http/http.dart';
 import 'package:logger/logger.dart';
 
 import 'feed_downloader.dart';
@@ -38,22 +37,22 @@ final class FeedsProcessor {
   Future process() async {
     final allFeeds = _feeds.findAll();
 
-    _clientProvider.withHttpClient((client) async {
-      for (final feed in allFeeds) {
-        final processingResult = await _processFeed(client, feed);
+    for (final feed in allFeeds) {
+      final processingResult = await _processFeed(feed);
 
-        switch (processingResult) {
-          case Ok(value: final feed):
-            await _persistFeedResult(feed);
-          case Err(:final error):
-            _logger.e('Error processing feed $feed', error: error);
-        }
+      switch (processingResult) {
+        case Ok(value: final feed):
+          _logger.i('Feed processed ${feed.url} with ${feed.articles.length} articles');
+          await _persistFeedResult(feed);
+        case Err(:final error):
+          _logger.e('Error processing feed $feed', error: error);
       }
-    });
+    }
   }
 
-  Future<FeedParsingResult> _processFeed(Client client, FeedRecord feed) async {
-    final downloadResult = await client.download(feed.url);
+  Future<FeedParsingResult> _processFeed(FeedRecord feed) async {
+    final downloadResult =
+        await _clientProvider.withHttpClient((client) => client.download(feed.url));
 
     switch (downloadResult) {
       case Ok(value: final download):

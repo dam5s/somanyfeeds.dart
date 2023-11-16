@@ -1,15 +1,15 @@
 import 'dart:io';
 
-import 'package:damo_io_server/async_support/background_runner.dart';
-import 'package:damo_io_server/feed_processing/feeds_processor.dart';
+import 'package:damo_io_server/app_dependencies.dart';
 import 'package:dart_frog/dart_frog.dart';
 
-final _backgroundRunner = BackgroundRunner();
-final _processor = FeedsProcessor();
-
 Future<HttpServer> run(Handler handler, InternetAddress ip, int port) {
-  _backgroundRunner.runPeriodically(
-    callback: _processor.process,
+  final dependencies = AppDependencies.shared;
+  final runner = dependencies.periodicRunner;
+  final processor = dependencies.processor;
+
+  runner.runPeriodically(
+    callback: processor.process,
     every: const Duration(minutes: 5),
   );
   return serve(handler, ip, port);

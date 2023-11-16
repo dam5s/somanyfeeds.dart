@@ -14,6 +14,6 @@ void main() {
     final response = route.onRequest(context);
 
     expect(response.statusCode, equals(HttpStatus.found));
-    expect(response.headers['location'], equals('/hello/world'));
+    expect(response.headers['location'], equals('/articles'));
   });
 }

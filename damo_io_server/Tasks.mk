@@ -1,6 +1,7 @@
 .PHONY: damo_io_server/install damo_io_server/check damo_io_server/dev
 
 damo_io_server/install:
+	cd damo_io_server; dart pub global activate dart_frog_cli
 	cd damo_io_server; dart pub get
 
 damo_io_server/check:
@@ -9,4 +10,4 @@ damo_io_server/check:
 	cd damo_io_server; dart run cyclic_dependency_checks .
 
 damo_io_server/dev:
-	cd damo_io_server; dart run dart_frog_cli:dart_frog dev
+	cd damo_io_server; dart_frog dev

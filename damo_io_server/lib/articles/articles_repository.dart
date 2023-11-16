@@ -1,11 +1,11 @@
-import 'dart:collection';
-
 import 'article_record.dart';
 
 final class ArticlesRepository {
-  List<ArticleRecord> _articles = [];
+  var _articles = List<ArticleRecord>.empty(growable: true);
 
-  Iterable<ArticleRecord> findAll() => UnmodifiableListView(_articles);
+  Iterable<ArticleRecord> findAll() {
+    return _articles;
+  }
 
   void upsert(ArticleRecord article) {
     if (_exists(article)) {
