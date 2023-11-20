@@ -3,9 +3,7 @@ import 'article_record.dart';
 final class ArticlesRepository {
   var _articles = List<ArticleRecord>.empty(growable: true);
 
-  Iterable<ArticleRecord> findAll() {
-    return _articles;
-  }
+  Iterable<ArticleRecord> findAll() => List.unmodifiable(_articles);
 
   void upsert(ArticleRecord article) {
     if (_exists(article)) {
