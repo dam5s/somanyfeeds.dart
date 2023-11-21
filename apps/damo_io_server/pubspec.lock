@@ -44,7 +44,7 @@ packages:
   async_support:
     dependency: "direct main"
     description:
-      path: "../async_support"
+      path: "../../packages/async_support"
       relative: true
     source: path
     version: "0.0.0"
@@ -340,7 +340,7 @@ packages:
   networking_support:
     dependency: "direct main"
     description:
-      path: "../networking_support"
+      path: "../../packages/networking_support"
       relative: true
     source: path
     version: "0.0.0"
@@ -403,7 +403,7 @@ packages:
   prelude:
     dependency: "direct main"
     description:
-      path: "../prelude"
+      path: "../../packages/prelude"
       relative: true
     source: path
     version: "0.0.0"

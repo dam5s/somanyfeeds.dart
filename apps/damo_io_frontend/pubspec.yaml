@@ -8,8 +8,8 @@ dependencies:
   flutter: { sdk: flutter }
   cupertino_icons: ^1.0.2
   http: ^1.1.0
-  networking_support: { path: '../networking_support' }
-  prelude: { path: '../prelude' }
+  networking_support: { path: '../../packages/networking_support' }
+  prelude: { path: '../../packages/prelude' }
 
 dev_dependencies:
   flutter_test:
