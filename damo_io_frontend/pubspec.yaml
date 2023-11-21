@@ -18,7 +18,7 @@ dev_dependencies:
   cyclic_dependency_checks:
     git: { url: https://github.com/dam5s/cyclic_dependency_checks.git, ref: release/0.4.0 }
 
-  flutter_lints: ^2.0.0
+  flutter_lints: ^3.0.1
 
 flutter:
   # The following line ensures that the Material Icons font is
