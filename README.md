@@ -2,7 +2,8 @@
 
 ## Dependencies
 
- * Dart 3
+ * Flutter 3.16.0
+ * Dart 3.2
 
 ## Running the build
 
