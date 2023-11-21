@@ -2,21 +2,18 @@ name: damo_io_frontend
 publish_to: none
 
 environment:
-  sdk: '>=3.2.0 <4.0.0'
+  sdk: ^3.2.0
 
 dependencies:
   flutter: { sdk: flutter }
   cupertino_icons: ^1.0.2
   http: ^1.1.0
-  networking_support: { path: '../../packages/networking_support' }
-  prelude: { path: '../../packages/prelude' }
+  networking_support: 0.0.0
+  prelude: 0.0.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
-  cyclic_dependency_checks:
-    git: { url: https://github.com/dam5s/cyclic_dependency_checks.git, ref: release/0.4.0 }
 
   flutter_lints: ^3.0.1
 

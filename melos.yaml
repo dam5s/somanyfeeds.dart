@@ -1,0 +1,20 @@
+name: somanyfeeds
+
+packages:
+  - apps/*
+  - packages/*
+
+scripts:
+  format:
+    run: dart format . --line-length 100 --set-exit-if-changed
+
+  install:
+    exec: dart pub get
+
+  test:
+    exec: flutter test
+
+  dev:
+    exec: dart_frog dev
+    packageFilters:
+      scope: 'damo_io_server'

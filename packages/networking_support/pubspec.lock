@@ -73,15 +73,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.0.3"
-  cyclic_dependency_checks:
-    dependency: "direct dev"
-    description:
-      path: "."
-      ref: "release/0.4.0"
-      resolved-ref: fed1c959365283197ec98c6d15bf2e5bd6b41d7c
-      url: "https://github.com/dam5s/cyclic_dependency_checks.git"
-    source: git
-    version: "0.1.0"
   file:
     dependency: transitive
     description:

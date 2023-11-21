@@ -8,6 +8,6 @@
 ## Running the build
 
 ```
-make install
+make setup
 make check
 ```

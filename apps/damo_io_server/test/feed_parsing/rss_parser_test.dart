@@ -6,7 +6,6 @@ import 'package:prelude/prelude.dart';
 import 'package:test/test.dart';
 
 void main() {
-
   Future<FeedParsingResult> parseFile(String path, String url) async {
     final fileContent = await File(path).readAsString();
     final rawFeed = RawFeed(url: url, content: fileContent);
@@ -30,7 +29,10 @@ void main() {
     final article = articles.first;
     expect(article.url, equals('https://mastodon.kleph.eu/@dam5s/111354148842060596'));
     expect(article.title, equals(''));
-    expect(article.content, equals('<p>Learning Godot.</p><p>So far it&#39;s pretty good. I really appreciated to see that the UI can be scaled to support high DPI displays.</p><p>It seems rare these days to find cross-platform applications with this built-in.</p>'));
+    expect(
+        article.content,
+        equals(
+            '<p>Learning Godot.</p><p>So far it&#39;s pretty good. I really appreciated to see that the UI can be scaled to support high DPI displays.</p><p>It seems rare these days to find cross-platform applications with this built-in.</p>'));
     expect(article.publishedAt, equals(DateTime.utc(2023, 11, 4, 20, 24, 33)));
   });
 

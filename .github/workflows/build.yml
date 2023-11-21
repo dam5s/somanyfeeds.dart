@@ -9,5 +9,5 @@ jobs:
         with:
           flutter-version: '3.16.0'
           channel: 'stable'
-      - run: make install
+      - run: make setup
       - run: make check

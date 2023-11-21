@@ -1,0 +1,11 @@
+name: somanyfeeds
+publish_to: none
+
+environment:
+  sdk: ^3.2.0
+
+dev_dependencies:
+  melos: ^3.2.0
+  cyclic_dependency_checks:
+    git: { url: https://github.com/dam5s/cyclic_dependency_checks.git, ref: release/0.4.0 }
+  dart_frog_cli: ^1.1.1

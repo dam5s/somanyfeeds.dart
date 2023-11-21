@@ -7,7 +7,6 @@ import '../../routes/articles.dart' as route;
 import '../articles/builders.dart';
 import '../test_support/test_request_context.dart';
 
-
 void main() {
   test('GET /articles', () async {
     final dependencies = AppDependencies.defaults();
