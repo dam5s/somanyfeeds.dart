@@ -1,4 +1,4 @@
-import 'package:damo_io_server/prelude/result.dart';
+import 'package:prelude/prelude.dart';
 
 import 'parsed_feed.dart';
 

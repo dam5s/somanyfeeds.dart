@@ -1,0 +1,16 @@
+name: networking_support
+publish_to: none
+
+environment:
+  sdk: ^3.2.0
+
+dependencies:
+  http: ^1.1.0
+  logger: ^2.0.2+1
+  prelude: {path: '../prelude'}
+
+dev_dependencies:
+  cyclic_dependency_checks:
+    git: { url: https://github.com/dam5s/cyclic_dependency_checks.git, ref: release/0.4.0 }
+  lints: ^2.1.0
+  test: ^1.24.0

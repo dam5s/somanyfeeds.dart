@@ -1,6 +1,6 @@
 import 'package:damo_io_server/feed_parsing/feed_parser.dart';
-import 'package:damo_io_server/networking/http.dart';
-import 'package:damo_io_server/prelude/result.dart';
+import 'package:networking_support/networking_support.dart';
+import 'package:prelude/prelude.dart';
 import 'package:http/http.dart';
 
 extension FeedDownloader on Client {

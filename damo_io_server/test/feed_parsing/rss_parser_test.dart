@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:damo_io_server/feed_parsing/feed_parser.dart';
 import 'package:damo_io_server/feed_parsing/rss_parser.dart';
-import 'package:damo_io_server/prelude/result.dart';
+import 'package:prelude/prelude.dart';
 import 'package:test/test.dart';
 
 void main() {

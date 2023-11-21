@@ -7,8 +7,8 @@ import 'package:damo_io_server/feed_parsing/parsed_feed.dart';
 import 'package:damo_io_server/feed_parsing/rss_parser.dart';
 import 'package:damo_io_server/feeds/feed_record.dart';
 import 'package:damo_io_server/feeds/feeds_repository.dart';
-import 'package:damo_io_server/networking/http_client_provider.dart';
-import 'package:damo_io_server/prelude/result.dart';
+import 'package:networking_support/networking_support.dart';
+import 'package:prelude/prelude.dart';
 import 'package:logger/logger.dart';
 
 import 'feed_downloader.dart';

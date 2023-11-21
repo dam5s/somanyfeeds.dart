@@ -1,5 +1,15 @@
+# IntelliJ
 .idea
+*.iml
+
+# MacOS
 .DS_Store
+
+# Dart & Flutter
 build
 .dart_tool
 .dart_frog
+.flutter-plugins
+.flutter-plugins-dependencies
+.pub-cache
+.pub

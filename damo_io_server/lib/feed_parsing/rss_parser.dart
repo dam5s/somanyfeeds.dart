@@ -1,7 +1,7 @@
 import 'package:damo_io_server/feed_parsing/parsed_feed.dart';
-import 'package:damo_io_server/prelude/result.dart';
-import 'package:dart_rss/dart_rss.dart';
+import 'package:prelude/prelude.dart';
 import 'package:intl/intl.dart';
+import 'package:rss_dart/dart_rss.dart';
 
 import 'feed_parser.dart';
 

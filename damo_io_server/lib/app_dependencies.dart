@@ -1,5 +1,5 @@
 import 'package:damo_io_server/articles/articles_repository.dart';
-import 'package:damo_io_server/async_support/periodic_runner.dart';
+import 'package:async_support/async_support.dart';
 import 'package:damo_io_server/feed_processing/feeds_processor.dart';
 import 'package:damo_io_server/feeds/feeds_repository.dart';
 
