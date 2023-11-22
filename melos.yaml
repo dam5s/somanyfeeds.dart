@@ -12,7 +12,7 @@ scripts:
     exec: dart pub get
 
   test:
-    exec:  flutter test
+    exec: flutter test
 
   cyclic_dependency_checks:
     run: dart run cyclic_dependency_checks -m .

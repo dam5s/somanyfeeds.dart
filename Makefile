@@ -1,4 +1,4 @@
-.PHONY: setup install format test cyclic_dependency_checks check dev
+.PHONY: setup check
 
 setup:
 	dart pub get
@@ -6,19 +6,7 @@ setup:
 	dart pub global activate dart_frog_cli
 	melos bootstrap
 
-install:
-	melos run install
-
-format:
+check:
 	melos run format
-
-test:
 	melos test
-
-cyclic_dependency_checks:
 	melos run cyclic_dependency_checks
-
-check: format test cyclic_dependency_checks
-
-dev:
-	melos run dev
