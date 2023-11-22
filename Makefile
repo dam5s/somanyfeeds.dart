@@ -16,11 +16,7 @@ test:
 	melos test
 
 cyclic_dependency_checks:
-	dart run cyclic_dependency_checks -p packages/async_support
-	dart run cyclic_dependency_checks -p packages/networking_support
-	dart run cyclic_dependency_checks -p packages/prelude
-	dart run cyclic_dependency_checks -p apps/damo_io_server
-	dart run cyclic_dependency_checks -p apps/damo_io_frontend
+	melos run cyclic_dependency_checks
 
 check: format test cyclic_dependency_checks
 

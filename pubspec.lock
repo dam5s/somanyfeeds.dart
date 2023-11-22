@@ -117,11 +117,11 @@ packages:
     dependency: "direct dev"
     description:
       path: "."
-      ref: "release/0.4.0"
-      resolved-ref: fed1c959365283197ec98c6d15bf2e5bd6b41d7c
+      ref: "release/0.5.0"
+      resolved-ref: bc9c7d390bc11eee459809b34f3e47e70403896a
       url: "https://github.com/dam5s/cyclic_dependency_checks.git"
     source: git
-    version: "0.1.0"
+    version: "0.5.0"
   dart_frog_cli:
     dependency: "direct dev"
     description:
