@@ -6,16 +6,15 @@ import 'package:prelude/prelude.dart';
 import 'package:test/test.dart';
 
 void main() {
-  Future<FeedParsingResult> parseFile(String path, String url) async {
+  Future<FeedParsingResult> parseFile(String path) async {
+    final url = 'file://$path';
     final fileContent = await File(path).readAsString();
     final rawFeed = RawFeed(url: url, content: fileContent);
     return RssParser().parse(rawFeed);
   }
 
   test('parsing mastodon rss', () async {
-    final filePath = 'test/feed_parsing/mastodon.rss';
-    final fileUrl = 'file://$filePath';
-    final result = await parseFile(filePath, fileUrl);
+    final result = await parseFile('test/feed_parsing/mastodon.rss');
 
     expect(result.isOk(), equals(true));
 
@@ -37,9 +36,7 @@ void main() {
   });
 
   test('parsing blog rss', () async {
-    final filePath = 'test/feed_parsing/blog.xml';
-    final fileUrl = 'file://$filePath';
-    final result = await parseFile(filePath, fileUrl);
+    final result = await parseFile('test/feed_parsing/blog.xml');
 
     expect(result.isOk(), equals(true));
 
