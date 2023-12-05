@@ -1,25 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:networking_support/networking_support.dart';
+import 'package:provider/provider.dart';
 
-import 'articles_page.dart';
+import 'app.dart';
+import 'app_dependencies.dart';
+import 'foundation_async_compute.dart';
 
 void main() {
-  runApp(const App());
-}
-
-class App extends StatelessWidget {
-  const App({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    const primaryColor = Color.fromARGB(255, 162, 113, 236);
-
-    return MaterialApp(
-      title: "damo.io — Damien Le Berrigaud's feeds.",
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: primaryColor),
-        useMaterial3: true,
+  runApp(
+    Provider(
+      create: (_) => AppDependencies(
+        httpClientProvider: ConcreteHttpClientProvider(),
+        asyncCompute: FoundationAsyncCompute(),
+        articlesUrl: 'http://localhost:8080/articles',
       ),
-      home: const ArticlesPage(),
-    );
-  }
+      child: const App(),
+    ),
+  );
 }

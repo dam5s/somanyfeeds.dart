@@ -13,9 +13,17 @@ final class HttpUnexpectedStatusCodeError implements HttpError {
   final int actual;
 }
 
+final class HttpDeserializationError implements HttpError {
+  const HttpDeserializationError(this.error, this.responseBody);
+
+  final TypeError error;
+  final String responseBody;
+}
+
 extension HttpErrorMessage on HttpError {
   String message() => switch (this) {
         HttpConnectionError() => 'There was an error connecting',
         HttpUnexpectedStatusCodeError() => 'Unexpected response from api',
+        HttpDeserializationError() => 'Failed to parse response',
       };
 }

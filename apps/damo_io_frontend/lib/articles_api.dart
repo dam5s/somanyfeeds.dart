@@ -1,11 +1,23 @@
-import 'package:http/http.dart';
 import 'package:networking_support/networking_support.dart';
-import 'package:prelude/prelude.dart';
 
 import 'article.dart';
 
-extension ArticlesApi on Client {
-  HttpFuture<List<Article>> fetchArticles() async {
-    return Err(HttpConnectionError(Exception('Not implemented')));
-  }
+Article _articleFromJson(JsonDecoder json) => Article(
+      title: json.field('title'),
+      content: json.field('content'),
+    );
+
+HttpFuture<Iterable<Article>> fetchArticles(
+  HttpClientProvider httpClientProvider,
+  AsyncCompute asyncCompute,
+  String articlesUrl,
+) async {
+  return httpClientProvider.withHttpClient((client) async {
+    final requestUrl = Uri.parse(articlesUrl);
+    final result = await client.sendRequest(HttpMethod.get, requestUrl);
+
+    return result.expectStatusCode(200).tryParseJson(
+          (json) => json.objectArray('articles', _articleFromJson),
+        );
+  });
 }
