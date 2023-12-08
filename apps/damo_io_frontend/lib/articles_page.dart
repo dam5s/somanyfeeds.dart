@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:networking_support/networking_support.dart';
 
 import 'article.dart';
+import 'http_future_builder.dart';
 
 class ArticlesPage extends StatelessWidget {
   const ArticlesPage({super.key});
@@ -37,10 +38,9 @@ class _ArticlesList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Text('No articles loaded yet');
-    // HttpFutureBuilder(future: _articles, builder: (context, snapshot) {
-    //   // switch (snapshot.)
-    //
-    // });
+    return HttpFutureBuilder(
+      future: _articles,
+      builder: (context, articleList) => Text('We got ${articleList.length} articles'),
+    );
   }
 }

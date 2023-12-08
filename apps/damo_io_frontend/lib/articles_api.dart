@@ -18,6 +18,7 @@ HttpFuture<Iterable<Article>> fetchArticles(
 
     return result.expectStatusCode(200).tryParseJson(
           (json) => json.objectArray('articles', _articleFromJson),
+          async: asyncCompute,
         );
   });
 }

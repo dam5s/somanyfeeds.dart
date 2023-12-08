@@ -33,8 +33,6 @@ extension SendRequest on Client {
   }
 }
 
-final _inlineAsync = InlineAsyncCompute();
-
 extension ResponseHandling on HttpResult<Response> {
   HttpResult<Response> expectStatusCode(int expected) => flatMapOk((response) {
         if (response.statusCode == expected) {
@@ -45,9 +43,9 @@ extension ResponseHandling on HttpResult<Response> {
         }
       });
 
-  HttpFuture<T> tryParseJson<T>(JsonDecode<T> decode, {AsyncCompute? async}) async {
+  HttpFuture<T> tryParseJson<T>(JsonDecode<T> decode, {required AsyncCompute async}) async {
     return switch (this) {
-      Ok(value: final response) => (async ?? _inlineAsync).compute(
+      Ok(value: final response) => async.compute(
           (response) {
             try {
               final jsonObject = JsonDecoder.fromString(response.body);

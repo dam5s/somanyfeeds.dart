@@ -17,12 +17,15 @@ class TestDependencies {
 }
 
 extension WidgetTesterWithTestDependencies on WidgetTester {
-  Future<TestDependencies> pumpWithTestDependencies(Widget widget) async {
-    final testDependencies = TestDependencies();
-    final appDependencies = testDependencies._buildAppDependencies();
+  Future<TestDependencies> pumpWithTestDependencies(
+    Widget widget, {
+    TestDependencies? dependencies,
+  }) async {
+    final testDeps = dependencies ?? TestDependencies();
+    final appDeps = testDeps._buildAppDependencies();
 
-    await pumpWidget(Provider(create: (_) => appDependencies, child: widget));
+    await pumpWidget(Provider(create: (_) => appDeps, child: widget));
 
-    return testDependencies;
+    return testDeps;
   }
 }
