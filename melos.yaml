@@ -18,6 +18,6 @@ scripts:
     run: dart run cyclic_dependency_checks -m .
 
   dev:
-    exec: dart_frog dev
+    exec: ACCESS_CONTROL_ALLOW_ORIGIN="*" dart_frog dev
     packageFilters:
       scope: damo_io_server
