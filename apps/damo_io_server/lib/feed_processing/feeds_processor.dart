@@ -17,6 +17,7 @@ final class FeedsProcessor {
   final FeedsRepository _feeds;
   final ArticlesRepository _articles;
   final HttpClientProvider _clientProvider;
+  final AsyncCompute _asyncCompute;
   final Iterable<FeedParser> _parsers;
   final Logger _logger = Logger();
 
@@ -28,17 +29,19 @@ final class FeedsProcessor {
     FeedsRepository? feeds,
     ArticlesRepository? articles,
     HttpClientProvider? httpClientProvider,
+    AsyncCompute? asyncCompute,
     Iterable<FeedParser>? parsers,
   })  : _feeds = feeds ?? FeedsRepository(),
         _articles = articles ?? ArticlesRepository(),
         _clientProvider = httpClientProvider ?? ConcreteHttpClientProvider(),
+        _asyncCompute = asyncCompute ?? IsolateAsyncCompute(),
         _parsers = parsers ?? _defaultParsers;
 
   Future process() async {
     final allFeeds = _feeds.findAll();
 
     for (final feed in allFeeds) {
-      final processingResult = await _processFeed(feed);
+      final processingResult = await _asyncCompute.compute(_processFeed, feed);
 
       switch (processingResult) {
         case Ok(value: final feed):
