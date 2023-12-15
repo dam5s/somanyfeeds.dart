@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:webfeeds="http://webfeeds.org/rss/1.0" xmlns:media="http://search.yahoo.com/mrss/">
+  <channel>
+    <title>Damien Le Berrigaud [IC]</title>
+    <description>Public posts from @dam5s@mastodon.kleph.eu</description>
+    <link>https://mastodon.kleph.eu/@dam5s</link>
+    <image>
+      <url>https://mastodon.kleph.eu/system/accounts/avatars/000/013/342/original/d31240ad9842b6cb.jpg</url>
+      <title>Damien Le Berrigaud [IC]</title>
+      <link>https://mastodon.kleph.eu/@dam5s</link>
+    </image>
+    <lastBuildDate>Sat, 04 Nov 2023 20:24:33 +0000</lastBuildDate>
+    <webfeeds:icon>https://mastodon.kleph.eu/system/accounts/avatars/000/013/342/original/d31240ad9842b6cb.jpg</webfeeds:icon>
+    <generator>Mastodon v4.2.1</generator>
+    <item>
+      <guid isPermaLink="true">https://mastodon.kleph.eu/@dam5s/111354148842060596</guid>
+      <link>https://mastodon.kleph.eu/@dam5s/111354148842060596</link>
+      <pubDate>Sat, 04 Nov 2023 20:24:33 +0000</pubDate>
+      <description>&lt;p&gt;Learning Godot.&lt;/p&gt;&lt;p&gt;So far it&amp;#39;s pretty good. I really appreciated to see that the UI can be scaled to support high DPI displays.&lt;/p&gt;&lt;p&gt;It seems rare these days to find cross-platform applications with this built-in.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <guid isPermaLink="true">https://mastodon.kleph.eu/@dam5s/111026406183981600</guid>
+      <link>https://mastodon.kleph.eu/@dam5s/111026406183981600</link>
+      <pubDate>Thu, 07 Sep 2023 23:15:19 +0000</pubDate>
+      <description>&lt;p&gt;Giving VeraCrypt a shot. Let&amp;#39;s hope it works well enough on my Linux, MacOS and Windows boxes!&lt;/p&gt;</description>
+      <media:content url="https://mastodon.kleph.eu/system/media_attachments/files/111/026/400/677/702/667/original/b154b89eaf15d229.png" type="image/png" fileSize="354387" medium="image">
+        <media:rating scheme="urn:simple">nonadult</media:rating>
+        <media:description type="plain">Screenshot of VeraCrypt in the process of encrypting a drive.</media:description>
+      </media:content>
+    </item>
+    <item>
+      <guid isPermaLink="true">https://mastodon.kleph.eu/@dam5s/110981779983924735</guid>
+      <link>https://mastodon.kleph.eu/@dam5s/110981779983924735</link>
+      <pubDate>Thu, 31 Aug 2023 02:06:17 +0000</pubDate>
+      <description>&lt;p&gt;Back at the Barrel Room in San Francisco’s business district. My favorite place when I just want to walk.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <guid isPermaLink="true">https://mastodon.kleph.eu/@dam5s/110970332710582215</guid>
+      <link>https://mastodon.kleph.eu/@dam5s/110970332710582215</link>
+      <pubDate>Tue, 29 Aug 2023 01:35:05 +0000</pubDate>
+      <description>&lt;p&gt;Scammers Abusing ExTwitter’s Fake ‘Verification’ Program To Prey On Angry Consumers&lt;/p&gt;&lt;p&gt;&lt;a href="https://www.techdirt.com/2023/08/28/scammers-abusing-extwitters-fake-verification-program-to-prey-on-angry-consumers/" target="_blank" rel="nofollow noopener noreferrer" translate="no"&gt;&lt;span class="invisible"&gt;https://www.&lt;/span&gt;&lt;span class="ellipsis"&gt;techdirt.com/2023/08/28/scamme&lt;/span&gt;&lt;span class="invisible"&gt;rs-abusing-extwitters-fake-verification-program-to-prey-on-angry-consumers/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;Those are fun times!&lt;/p&gt;</description>
+    </item>
+    <item>
+      <guid isPermaLink="true">https://mastodon.kleph.eu/@dam5s/110925547380607291</guid>
+      <link>https://mastodon.kleph.eu/@dam5s/110925547380607291</link>
+      <pubDate>Mon, 21 Aug 2023 03:45:34 +0000</pubDate>
+      <description>&lt;p&gt;So I made galettes with flour imported from Brittany that I found on Amazon. Well I’m happy to announce I was finally able to make something that tastes like home!&lt;/p&gt;</description>
+      <media:content url="https://mastodon.kleph.eu/system/media_attachments/files/110/925/274/386/501/881/original/f568a0ae64c076af.jpeg" type="image/jpeg" fileSize="456856" medium="image">
+        <media:rating scheme="urn:simple">nonadult</media:rating>
+        <media:description type="plain">Picture of a Galette, it’s brown, thin and crispy with an egg yolk in its center.</media:description>
+      </media:content>
+    </item>
+    <item>
+      <guid isPermaLink="true">https://mastodon.kleph.eu/@dam5s/110848993354419276</guid>
+      <link>https://mastodon.kleph.eu/@dam5s/110848993354419276</link>
+      <pubDate>Mon, 07 Aug 2023 15:16:51 +0000</pubDate>
+      <description>&lt;p&gt;This allows relative imports for files in the same folder only, requires absolute imports for other cases.&lt;/p&gt;&lt;p&gt;This will detect cycles across folder boundaries, not individual files. So you can have cycles within a folder, but not across the folder boundaries.&lt;/p&gt;&lt;p&gt;A/a -&amp;gt; A/b -&amp;gt; A/a is fine.&lt;/p&gt;&lt;p&gt;A/a -&amp;gt; B/a&lt;br /&gt;B/b -&amp;gt; A/a is not fine.&lt;/p&gt;&lt;p&gt;That is assuming you organize your code by features (vertical slices), not horizontal slices.&lt;/p&gt;&lt;p&gt;Which you should be doing anyway.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <guid isPermaLink="true">https://mastodon.kleph.eu/@dam5s/110848978645072570</guid>
+      <link>https://mastodon.kleph.eu/@dam5s/110848978645072570</link>
+      <pubDate>Mon, 07 Aug 2023 15:13:06 +0000</pubDate>
+      <description>&lt;p&gt;Implemented cyclic dependency checks for Dart/Flutter projects -&lt;/p&gt;&lt;p&gt;&lt;a href="https://github.com/dam5s/disk_space_usage/blob/main/scripts/check_import_cycles.dart" target="_blank" rel="nofollow noopener noreferrer" translate="no"&gt;&lt;span class="invisible"&gt;https://&lt;/span&gt;&lt;span class="ellipsis"&gt;github.com/dam5s/disk_space_us&lt;/span&gt;&lt;span class="invisible"&gt;age/blob/main/scripts/check_import_cycles.dart&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;Integrated into the build for now, hopefully a linter extension later -&lt;/p&gt;&lt;p&gt;&lt;a href="https://github.com/dam5s/disk_space_usage/blob/main/Makefile" target="_blank" rel="nofollow noopener noreferrer" translate="no"&gt;&lt;span class="invisible"&gt;https://&lt;/span&gt;&lt;span class="ellipsis"&gt;github.com/dam5s/disk_space_us&lt;/span&gt;&lt;span class="invisible"&gt;age/blob/main/Makefile&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href="https://mastodon.kleph.eu/tags/dart" class="mention hashtag" rel="tag"&gt;#&lt;span&gt;dart&lt;/span&gt;&lt;/a&gt; &lt;a href="https://mastodon.kleph.eu/tags/dartlang" class="mention hashtag" rel="tag"&gt;#&lt;span&gt;dartlang&lt;/span&gt;&lt;/a&gt; &lt;a href="https://mastodon.kleph.eu/tags/flutter" class="mention hashtag" rel="tag"&gt;#&lt;span&gt;flutter&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;</description>
+      <category>dart</category>
+      <category>dartlang</category>
+      <category>flutter</category>
+    </item>
+    <item>
+      <guid isPermaLink="true">https://mastodon.kleph.eu/@dam5s/110844071777129550</guid>
+      <link>https://mastodon.kleph.eu/@dam5s/110844071777129550</link>
+      <pubDate>Sun, 06 Aug 2023 18:25:13 +0000</pubDate>
+      <description>&lt;p&gt;Websites that wobble horizontally on mobile are sooooo unprofessional, and there is so many of them.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <guid isPermaLink="true">https://mastodon.kleph.eu/@dam5s/110843508174467399</guid>
+      <link>https://mastodon.kleph.eu/@dam5s/110843508174467399</link>
+      <pubDate>Sun, 06 Aug 2023 16:01:53 +0000</pubDate>
+      <description>&lt;p&gt;A typical example of cyclic dependencies when using ORMs would be to introduce a bunch of one-to-many dependencies in your User/Account record.&lt;/p&gt;&lt;p&gt;Those dependencies do not exist in your database, you now introduced a cycle and you will have to get rid of it before being able to extract this slice of your application.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <guid isPermaLink="true">https://mastodon.kleph.eu/@dam5s/110843492425494211</guid>
+      <link>https://mastodon.kleph.eu/@dam5s/110843492425494211</link>
+      <pubDate>Sun, 06 Aug 2023 15:57:53 +0000</pubDate>
+      <description>&lt;p&gt;A common example: you built an app that became popular.&lt;/p&gt;&lt;p&gt;This could be a backend or a mobile app, the same principles apply.&lt;/p&gt;&lt;p&gt;You now want to build another app and leverage your existing user base.&lt;/p&gt;&lt;p&gt;You want to extract account/user management.&lt;/p&gt;&lt;p&gt;If you have cyclic dependencies in the related code, extracting a backend service/mobile library for this feature set can be extremely tedious.&lt;/p&gt;&lt;p&gt;This has nothing to do with putting controllers in a folder, domain models in another.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <guid isPermaLink="true">https://mastodon.kleph.eu/@dam5s/110843473132766739</guid>
+      <link>https://mastodon.kleph.eu/@dam5s/110843473132766739</link>
+      <pubDate>Sun, 06 Aug 2023 15:52:59 +0000</pubDate>
+      <description>&lt;p&gt;Seems a lot of people conflate architecture and splitting an application into horizontal layers (Models, Controllers, Domain, Presentation...).&lt;/p&gt;&lt;p&gt;Architecture is actually more about defining vertical slices of your application.&lt;/p&gt;&lt;p&gt;That is separating features and domain concepts into groups that do not create dependency cycles.&lt;/p&gt;&lt;p&gt;You can have an app with well defined horizontal layers, but when you need to extract a vertical slice of the application it’s a nightmare because of cyclic dependencies.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <guid isPermaLink="true">https://mastodon.kleph.eu/@dam5s/110821456592656169</guid>
+      <link>https://mastodon.kleph.eu/@dam5s/110821456592656169</link>
+      <pubDate>Wed, 02 Aug 2023 18:33:52 +0000</pubDate>
+      <description>&lt;p&gt;Code comments&lt;/p&gt;</description>
+      <media:content url="https://mastodon.kleph.eu/system/media_attachments/files/110/821/452/126/152/229/original/7d51feb058810ef9.jpg" type="image/jpeg" fileSize="594683" medium="image">
+        <media:rating scheme="urn:simple">nonadult</media:rating>
+        <media:description type="plain">Sandwich wrapping with a label saying “beef” above a drawing of a horse.</media:description>
+      </media:content>
+    </item>
+    <item>
+      <guid isPermaLink="true">https://mastodon.kleph.eu/@dam5s/110793557901642724</guid>
+      <link>https://mastodon.kleph.eu/@dam5s/110793557901642724</link>
+      <pubDate>Fri, 28 Jul 2023 20:18:51 +0000</pubDate>
+      <description>&lt;p&gt;Code comments&lt;/p&gt;</description>
+      <media:content url="https://mastodon.kleph.eu/system/media_attachments/files/110/793/550/778/469/917/original/597750e0c550684e.jpeg" type="image/jpeg" fileSize="454115" medium="image">
+        <media:rating scheme="urn:simple">nonadult</media:rating>
+        <media:description type="plain">Glass container with Thyme written on it, it’s visibly filled with sea salt.</media:description>
+      </media:content>
+    </item>
+    <item>
+      <guid isPermaLink="true">https://mastodon.kleph.eu/@dam5s/110727253351037361</guid>
+      <link>https://mastodon.kleph.eu/@dam5s/110727253351037361</link>
+      <pubDate>Mon, 17 Jul 2023 03:16:42 +0000</pubDate>
+      <description>&lt;p&gt;Updated the Flutter starter some more today with:&lt;/p&gt;&lt;p&gt; - Better dependency injection&lt;br /&gt; - Background thread JSON decoding&lt;br /&gt; - Initial navigation pattern&lt;/p&gt;&lt;p&gt;&lt;a href="https://mastodon.kleph.eu/tags/dart" class="mention hashtag" rel="tag"&gt;#&lt;span&gt;dart&lt;/span&gt;&lt;/a&gt; &lt;a href="https://mastodon.kleph.eu/tags/flutter" class="mention hashtag" rel="tag"&gt;#&lt;span&gt;flutter&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;</description>
+      <category>dart</category>
+      <category>flutter</category>
+    </item>
+    <item>
+      <guid isPermaLink="true">https://mastodon.kleph.eu/@dam5s/110673528759330918</guid>
+      <link>https://mastodon.kleph.eu/@dam5s/110673528759330918</link>
+      <pubDate>Fri, 07 Jul 2023 15:33:51 +0000</pubDate>
+      <description>&lt;p&gt;So I wrote a Flutter starter with examples of API integrations with error handling and client injection for testing.&lt;/p&gt;&lt;p&gt;As usual, this uses Algebraic Data types for type safe error handling.&lt;/p&gt;&lt;p&gt;&lt;a href="https://github.com/dam5s/flutter_starter" target="_blank" rel="nofollow noopener noreferrer" translate="no"&gt;&lt;span class="invisible"&gt;https://&lt;/span&gt;&lt;span class="ellipsis"&gt;github.com/dam5s/flutter_start&lt;/span&gt;&lt;span class="invisible"&gt;er&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;Flutter and Dart&amp;#39;s dev experience have been delightful so far.&lt;/p&gt;&lt;p&gt;Next steps will be adding in navigation and local storage.&lt;/p&gt;&lt;p&gt;&lt;a href="https://mastodon.kleph.eu/tags/dart" class="mention hashtag" rel="tag"&gt;#&lt;span&gt;dart&lt;/span&gt;&lt;/a&gt; &lt;a href="https://mastodon.kleph.eu/tags/flutter" class="mention hashtag" rel="tag"&gt;#&lt;span&gt;flutter&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;</description>
+      <category>dart</category>
+      <category>flutter</category>
+    </item>
+    <item>
+      <guid isPermaLink="true">https://mastodon.kleph.eu/@dam5s/110656530322622729</guid>
+      <link>https://mastodon.kleph.eu/@dam5s/110656530322622729</link>
+      <pubDate>Tue, 04 Jul 2023 15:30:55 +0000</pubDate>
+      <description>&lt;p&gt;Look at me being &lt;span class="h-card" translate="no"&gt;&lt;a href="https://mastodon.gamedev.place/@rewrking" class="u-url mention"&gt;@&lt;span&gt;rewrking&lt;/span&gt;&lt;/a&gt;&lt;/span&gt; &amp;#39;s 100th follower!&lt;/p&gt;</description>
+    </item>
+    <item>
+      <guid isPermaLink="true">https://mastodon.kleph.eu/@dam5s/110614037310299080</guid>
+      <link>https://mastodon.kleph.eu/@dam5s/110614037310299080</link>
+      <pubDate>Tue, 27 Jun 2023 03:24:25 +0000</pubDate>
+      <description>&lt;p&gt;Skeeters and Tooters keep complaining about each other. &lt;/p&gt;&lt;p&gt;They are both great,&lt;/p&gt;&lt;p&gt;keep pushing for what you think is right instead of complaining about what is wrong.&lt;/p&gt;&lt;p&gt;I am French, I know about complaining… a lot. Focusing on finding solutions is better.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <guid isPermaLink="true">https://mastodon.kleph.eu/@dam5s/110585810303243876</guid>
+      <link>https://mastodon.kleph.eu/@dam5s/110585810303243876</link>
+      <pubDate>Thu, 22 Jun 2023 03:45:55 +0000</pubDate>
+      <description>&lt;p&gt;Currently in a taxi from Denver airport under “Severe thunderstorm”.&lt;/p&gt;&lt;p&gt;Holy moly, hail was really heavy for 10-15 minutes. I’m amazed the windows didn’t shatter.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <guid isPermaLink="true">https://mastodon.kleph.eu/@dam5s/110408966029206923</guid>
+      <link>https://mastodon.kleph.eu/@dam5s/110408966029206923</link>
+      <pubDate>Sun, 21 May 2023 22:12:04 +0000</pubDate>
+      <description>&lt;p&gt;Little trip to San Francisco for work. I like hanging out on Sunday when I do travel.&lt;/p&gt;</description>
+      <media:content url="https://mastodon.kleph.eu/system/media_attachments/files/110/408/956/596/752/151/original/335efba1ecebde12.jpg" type="image/jpeg" fileSize="392035" medium="image">
+        <media:rating scheme="urn:simple">nonadult</media:rating>
+        <media:description type="plain">Picture of a beer with San Francisco streets in the background.</media:description>
+      </media:content>
+    </item>
+    <item>
+      <guid isPermaLink="true">https://mastodon.kleph.eu/@dam5s/109934359114243446</guid>
+      <link>https://mastodon.kleph.eu/@dam5s/109934359114243446</link>
+      <pubDate>Mon, 27 Feb 2023 02:33:16 +0000</pubDate>
+      <description>&lt;p&gt;When non-cyclists think infrastructure for bikes, most think bike lanes.&lt;/p&gt;&lt;p&gt;A bike lane is not infrastructure, it’s just paint.&lt;/p&gt;&lt;p&gt;It’s mostly worse because drivers tend to give less space to cyclists since there is a “line”.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
