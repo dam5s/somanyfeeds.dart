@@ -1,4 +1,4 @@
-import 'package:html_support/html_builder.dart';
+import 'package:html_support/src/html_builder.dart';
 import 'package:test/test.dart';
 
 void main() {

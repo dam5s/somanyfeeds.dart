@@ -17,7 +17,7 @@ TagBuilder tag(String name) {
     final renderedAttrs =
         attrs.entries.map((e) => ' ${e.key}="${e.value}"').join();
 
-    return "<${name}${renderedAttrs}>$renderedChildren</${name}>";
+    return "<$name$renderedAttrs>$renderedChildren</$name>";
   };
 }
 
