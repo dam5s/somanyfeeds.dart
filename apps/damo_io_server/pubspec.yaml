@@ -6,6 +6,7 @@ environment:
 
 dependencies:
   async_support: 0.0.0
+  html_support: 0.0.0
   dart_frog: ^1.0.0
   intl: ^0.18.1
   logger: ^2.0.2+1

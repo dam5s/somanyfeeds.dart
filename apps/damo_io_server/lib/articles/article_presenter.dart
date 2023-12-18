@@ -1,4 +1,5 @@
 import 'package:damo_io_server/articles/article_record.dart';
+import 'package:html_support/html_support.dart';
 
 class ArticlePresenter {
   final String feedUrl;
@@ -30,4 +31,9 @@ class ArticlePresenter {
         'content': content,
         'publishedAt': publishedAt,
       };
+
+  String toHtml() => article(children: [
+        h1(content: title),
+        section(content: content),
+      ]);
 }

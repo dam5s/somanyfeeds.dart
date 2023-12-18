@@ -1,23 +1,24 @@
 typedef TagBuilder = String Function({
   Map<String, String>? attrs,
-  List<String>? children,
-  String? text,
+  Iterable<String>? children,
+  String? content,
 });
 
 TagBuilder tag(String name) {
   return ({
     Map<String, String>? attrs,
-    List<String>? children,
-    String? text,
+    Iterable<String>? children,
+    String? content,
   }) {
     attrs ??= {};
-    children ??= text == null ? [] : [text];
+    content = content ?? children?.join();
 
-    final renderedChildren = children.join();
-    final renderedAttrs =
-        attrs.entries.map((e) => ' ${e.key}="${e.value}"').join();
+    final renderedAttrs = attrs.entries.map((e) => ' ${e.key}="${e.value}"').join();
 
-    return "<$name$renderedAttrs>$renderedChildren</$name>";
+    return switch (content) {
+      null => '<$name$renderedAttrs />',
+      _ => '<$name$renderedAttrs>$content</$name>',
+    };
   };
 }
 
@@ -33,3 +34,5 @@ final h5 = tag('h5');
 final h6 = tag('h6');
 
 final p = tag('p');
+
+final input = tag('input');

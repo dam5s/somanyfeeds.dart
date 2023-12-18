@@ -15,12 +15,12 @@ void main() {
 
     dependencies.articles.upsert(article);
 
-    final response = route.onRequest(context);
+    final response = await route.onRequest(context);
 
     expect(response.statusCode, equals(HttpStatus.ok));
 
     final body = await response.body();
-    expect(body, contains('{"articles":['));
-    expect(body, contains('"title":"This is an article"'));
+    expect(body, contains('<section class="articles">'));
+    expect(body, contains('<h1>This is an article</h1>'));
   });
 }

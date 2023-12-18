@@ -7,16 +7,16 @@ void main() {
 
     final rendered = layout.render({
       'title': 'Page Title',
-      'main': h1(text: 'Main content'),
+      'main': h1(content: 'Main content'),
     });
 
-    final expected = '<html>'
-        '<head>'
-        '    <title>Page Title</title>'
-        '</head>'
-        '<body>'
-        '    <h1>Main content</h1>'
-        '</body>'
+    final expected = '<html>\r\n'
+        '<head>\r\n'
+        '    <title>Page Title</title>\r\n'
+        '</head>\r\n'
+        '<body>\r\n'
+        '    <h1>Main content</h1>\r\n'
+        '</body>\r\n'
         '</html>';
 
     expect(rendered, equals(expected));
