@@ -22,7 +22,11 @@ class InlineAsyncCompute extends AsyncCompute {
 
 class IsolateAsyncCompute extends AsyncCompute {
   @override
-  Future<R> compute<M, R>(FutureOr<R> Function(M message) callback, M message, {String? debugLabel}) {
+  Future<R> compute<M, R>(
+    FutureOr<R> Function(M message) callback,
+    M message, {
+    String? debugLabel,
+  }) {
     return Isolate.run(() => callback(message), debugName: debugLabel);
   }
 }
