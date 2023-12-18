@@ -13,7 +13,7 @@ class ListArticlesPresenter {
         'articles': articles.map((it) => it.toJson()).toList(),
       };
 
-  String toHtml() => section(
+  String toHtml() => tag('main')(
         attrs: {'class': 'articles'},
         children: articles.map((it) => it.toHtml()),
       );

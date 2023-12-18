@@ -33,7 +33,9 @@ class ArticlePresenter {
       };
 
   String toHtml() => article(children: [
-        h1(content: title),
+        header(children: [
+          h1(content: a(attrs: {'href': url}, content: title)),
+        ]),
         section(content: content),
       ]);
 }

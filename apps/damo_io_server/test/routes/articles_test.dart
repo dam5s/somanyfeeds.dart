@@ -11,7 +11,10 @@ void main() {
   test('GET /articles', () async {
     final dependencies = AppDependencies.defaults();
     final context = dependencies.createTestRequestContext();
-    final article = buildArticleRecord(title: 'This is an article');
+    final article = buildArticleRecord(
+      url: 'https://blog.example.com/1',
+      title: 'This is an article',
+    );
 
     dependencies.articles.upsert(article);
 
@@ -20,7 +23,7 @@ void main() {
     expect(response.statusCode, equals(HttpStatus.ok));
 
     final body = await response.body();
-    expect(body, contains('<section class="articles">'));
-    expect(body, contains('<h1>This is an article</h1>'));
+    expect(body, contains('<main class="articles">'));
+    expect(body, contains('<h1><a href="https://blog.example.com/1">This is an article</a></h1>'));
   });
 }

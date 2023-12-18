@@ -24,6 +24,7 @@ TagBuilder tag(String name) {
 
 final section = tag('section');
 final article = tag('article');
+final header = tag('header');
 final div = tag('div');
 
 final h1 = tag('h1');
@@ -34,5 +35,6 @@ final h5 = tag('h5');
 final h6 = tag('h6');
 
 final p = tag('p');
+final a = tag('a');
 
 final input = tag('input');
