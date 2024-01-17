@@ -1,10 +1,10 @@
-typedef TagBuilder = String Function({
+typedef _TagBuilder = String Function({
   Map<String, String>? attrs,
   Iterable<String>? children,
   String? content,
 });
 
-TagBuilder tag(String name) {
+_TagBuilder _builder(String name) {
   return ({
     Map<String, String>? attrs,
     Iterable<String>? children,
@@ -22,19 +22,28 @@ TagBuilder tag(String name) {
   };
 }
 
-final section = tag('section');
-final article = tag('article');
-final header = tag('header');
-final div = tag('div');
+String tag(
+  String name, {
+  Map<String, String>? attrs,
+  Iterable<String>? children,
+  String? content,
+}) {
+  return _builder(name)(attrs: attrs, children: children, content: content);
+}
 
-final h1 = tag('h1');
-final h2 = tag('h2');
-final h3 = tag('h3');
-final h4 = tag('h4');
-final h5 = tag('h5');
-final h6 = tag('h6');
+final section = _builder('section');
+final article = _builder('article');
+final header = _builder('header');
+final div = _builder('div');
 
-final p = tag('p');
-final a = tag('a');
+final h1 = _builder('h1');
+final h2 = _builder('h2');
+final h3 = _builder('h3');
+final h4 = _builder('h4');
+final h5 = _builder('h5');
+final h6 = _builder('h6');
 
-final input = tag('input');
+final p = _builder('p');
+final a = _builder('a');
+
+final input = _builder('input');
