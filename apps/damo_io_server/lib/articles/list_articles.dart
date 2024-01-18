@@ -4,19 +4,17 @@ import 'package:logger/logger.dart';
 
 import 'article_presenter.dart';
 
-class ListArticlesPresenter {
+class ListArticlesPresenter extends HtmlPresenter {
   final Iterable<ArticlePresenter> articles;
 
   ListArticlesPresenter(this.articles);
 
-  Map<String, dynamic> toJson() => {
-        'articles': articles.map((it) => it.toJson()).toList(),
-      };
-
-  String toHtml() => tag('main',
+  @override
+  String toHtml() => tag(
+        name: 'main',
         attrs: {'class': 'articles'},
-        children: articles.map((it) => it.toHtml()),
-      );
+        children: articles,
+      ).toHtml();
 }
 
 class ListArticles {

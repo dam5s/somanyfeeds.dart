@@ -1,35 +1,54 @@
-typedef _TagBuilder = String Function({
+import 'html_presenter.dart';
+
+typedef _TagHtmlPresenterBuilder = HtmlPresenter Function({
   Map<String, String>? attrs,
-  Iterable<String>? children,
-  String? content,
+  Iterable<HtmlPresenter>? children,
+  HtmlPresenter? child,
+  String? text,
 });
 
-_TagBuilder _builder(String name) {
+_TagHtmlPresenterBuilder _builder(String tag) {
   return ({
     Map<String, String>? attrs,
-    Iterable<String>? children,
-    String? content,
+    Iterable<HtmlPresenter>? children,
+    HtmlPresenter? child,
+    String? text,
   }) {
-    attrs ??= {};
-    content = content ?? children?.join();
+    HtmlPresenter? inferredChild;
 
-    final renderedAttrs = attrs.entries.map((e) => ' ${e.key}="${e.value}"').join();
+    if (text != null) {
+      inferredChild = TextPresenter(value: text);
+    }
+    if (child != null) {
+      inferredChild = child;
+    }
+    if (children != null) {
+      inferredChild = IterableHtmlPresenter(elements: children);
+    }
 
-    return switch (content) {
-      null => '<$name$renderedAttrs />',
-      _ => '<$name$renderedAttrs>$content</$name>',
-    };
+    return TagHtmlPresenter(
+      tag: tag,
+      attrs: attrs ?? {},
+      child: inferredChild,
+    );
   };
 }
 
-String tag(
-  String name, {
+HtmlPresenter tag({
+  required String name,
   Map<String, String>? attrs,
-  Iterable<String>? children,
-  String? content,
-}) {
-  return _builder(name)(attrs: attrs, children: children, content: content);
-}
+  Iterable<HtmlPresenter>? children,
+  HtmlPresenter? child,
+  String? text,
+}) =>
+    _builder(name)(
+      attrs: attrs,
+      children: children,
+      child: child,
+      text: text,
+    );
+
+HtmlPresenter text(String value) => TextPresenter(value: value);
 
 final section = _builder('section');
 final article = _builder('article');

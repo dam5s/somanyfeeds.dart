@@ -1,5 +1,7 @@
 import 'dart:io';
 
+import 'html_presenter.dart';
+
 class LayoutLoader {
   final _layouts = <String, Layout>{};
 
@@ -26,11 +28,11 @@ class Layout {
 
   Layout._from(this._content);
 
-  String render(Map<String, String> content) {
+  String render(Map<String, HtmlPresenter> content) {
     var rendered = _content;
 
     for (var entry in content.entries) {
-      rendered = rendered.replaceFirst('<content id="${entry.key}"/>', entry.value);
+      rendered = rendered.replaceFirst('<content id="${entry.key}"/>', entry.value.toHtml());
     }
 
     return rendered;

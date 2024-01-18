@@ -8,7 +8,7 @@ Future<Response> onRequest(RequestContext context) async {
   final layout = await context.read<Future<Layout>>();
 
   return Response(
-    body: layout.render({'main': articles.toHtml()}),
+    body: layout.render({'main': articles}),
     headers: {'Content-Type': 'text/html'},
   );
 }

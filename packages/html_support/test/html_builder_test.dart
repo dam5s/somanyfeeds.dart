@@ -6,11 +6,11 @@ void main() {
     final rendered = section(
       attrs: {'id': 'main-section', 'class': 'wide'},
       children: [
-        h1(content: 'Hello'),
-        p(content: 'World'),
+        h1(text: 'Hello'),
+        p(text: 'World'),
         input(attrs: {'type': 'date'}),
       ],
-    );
+    ).toHtml();
 
     final expected = '<section id="main-section" class="wide">'
         '<h1>Hello</h1>'

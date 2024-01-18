@@ -6,8 +6,8 @@ void main() {
     final layout = await LayoutLoader().get('test/layout.html');
 
     final rendered = layout.render({
-      'title': 'Page Title',
-      'main': h1(content: 'Main content'),
+      'title': text('Page Title'),
+      'main': h1(text: 'Main content'),
     });
 
     final renderedWithoutNewLines = rendered.replaceAll('\r', '').replaceAll('\n', '');
