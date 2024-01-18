@@ -24,7 +24,7 @@ extension Cors on Handler {
     if (accessControlAllowOrigin != null) {
       return use(
         fromShelfMiddleware(
-          shelf.corsHeaders(headers: {shelf.ACCESS_CONTROL_ALLOW_ORIGIN: '*'}),
+          shelf.corsHeaders(headers: {shelf.ACCESS_CONTROL_ALLOW_ORIGIN: accessControlAllowOrigin}),
         ),
       );
     }
