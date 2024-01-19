@@ -5,7 +5,10 @@ final class PeriodicRunner {
 
   Timer? _timer;
 
-  Future runPeriodically({required Future Function() callback, required Duration every}) async {
+  Future<void> runPeriodically({
+    required Future<void> Function() callback,
+    required Duration every,
+  }) async {
     await callback();
 
     _timer = Timer.periodic(

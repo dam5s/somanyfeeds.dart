@@ -12,5 +12,6 @@ Future<HttpServer> run(Handler handler, InternetAddress ip, int port) {
     callback: processor.process,
     every: const Duration(minutes: 5),
   );
+
   return serve(handler, ip, port);
 }

@@ -37,7 +37,7 @@ final class FeedsProcessor {
         _asyncCompute = asyncCompute ?? IsolateAsyncCompute(),
         _parsers = parsers ?? _defaultParsers;
 
-  Future process() async {
+  Future<void> process() async {
     final allFeeds = _feeds.findAll();
 
     for (final feed in allFeeds) {
@@ -81,7 +81,7 @@ final class FeedsProcessor {
     }
   }
 
-  Future _persistFeedResult(ParsedFeed feed) async {
+  Future<void> _persistFeedResult(ParsedFeed feed) async {
     // if we were to use a database, this would be in a transaction
 
     for (final article in feed.articles) {
