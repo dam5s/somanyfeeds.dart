@@ -7,8 +7,21 @@ Future<Response> onRequest(RequestContext context) async {
   final articles = listArticles.execute();
   final layout = await context.read<Future<Layout>>();
 
+  final menu = ul(
+    attrs: {'class': 'main-menu'},
+    children: [
+      li(child: a(text: 'About', attrs: {'href': '#'})),
+      li(child: a(text: 'Social', attrs: {'href': '#'})),
+      li(child: a(text: 'Code', attrs: {'href': '#'})),
+      li(child: a(text: 'Blog', attrs: {'href': '#'})),
+    ],
+  );
+
   return Response(
-    body: layout.render({'main': articles}),
+    body: layout.render({
+      'menu': menu,
+      'main': articles,
+    }),
     headers: {'Content-Type': 'text/html'},
   );
 }

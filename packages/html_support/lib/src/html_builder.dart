@@ -53,6 +53,7 @@ HtmlPresenter text(String value) => TextPresenter(value: value);
 final section = _builder('section');
 final article = _builder('article');
 final header = _builder('header');
+final aside = _builder('aside');
 final div = _builder('div');
 
 final h1 = _builder('h1');
@@ -64,5 +65,7 @@ final h6 = _builder('h6');
 
 final p = _builder('p');
 final a = _builder('a');
+final ul = _builder('ul');
+final li = _builder('li');
 
 final input = _builder('input');
