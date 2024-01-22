@@ -2,24 +2,27 @@
     --bg-color: #333;
     --fg-color: #ddd;
     --card-color: rgba(0, 0, 0, 0.2);
-    --primary-color: #933693;
-    --secondary-color: #11B098;
+    --primary-color: #c055c0;
+    --secondary-color: #1180b0;
 
     --text-color: var(--fg-color);
-    --title-color: color-mix(in srgb, var(--secondary-color), var(--fg-color) 40%);
+    --title-color: color-mix(in srgb, var(--secondary-color), var(--fg-color) 20%);
 
     --code-bg-color: rgba(255, 255, 255, 0.05);
     --link-color: var(--primary-color);
 
     --article-date-text-color: rgba(255, 255, 255, 0.25);
 
-    --selected-menu-item-bg-color: color-mix(in srgb, var(--primary-color), transparent 90%);
-    --hover-menu-item-color: color-mix(in srgb, var(--primary-color), transparent 80%);
-    --hover-selected-menu-item-color: color-mix(in srgb, var(--primary-color), transparent 80%);
+    --menu-item-bg-not-selected: color-mix(in srgb, var(--primary-color), transparent 95%);
+    --menu-item-bg-selected: color-mix(in srgb, var(--primary-color), transparent 90%);
+    --menu-item-bg-hover: color-mix(in srgb, var(--primary-color), transparent 80%);
 
     --serif: 'Cambria', 'Palatino', serif;
     --sans-serif: -apple-system, 'Calibri', 'Helvetica Neue', sans-serif;
     --monospace: 'JetBrains Mono', 'SFMono-Regular', 'Consolas', 'Liberation Mono', 'Menlo', monospace;
+
+    --card-shadow: 2px 0 2px rgba(0, 0, 0, 0.3);
+    --emphasis-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
 }
 
 html {
@@ -54,17 +57,17 @@ body > aside {
     top: 0;
     bottom: 0;
     width: 40rem;
+    padding: 2.4rem 4.8rem;
     text-align: center;
-    box-shadow: 2px 0 2px rgba(0, 0, 0, 0.2);
+    box-shadow: 2px 0 2px rgba(0, 0, 0, 0.3);
 }
 
 body > aside h1 {
     font-family: var(--serif);
     color: var(--text-color);
-    filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.8));
     font-weight: 600;
     letter-spacing: -2px;
-    margin-top: 4.6rem;
+    margin: 2.4rem 0;
 }
 
 @media (max-width: 1000px) {
@@ -82,7 +85,7 @@ body > aside h1 {
         right: 0;
         width: 100%;
         height: 12.4rem;
-        box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+        box-shadow: var(--card-shadow);
     }
 }
 
@@ -93,6 +96,7 @@ h1, h2, h3, h4 {
     font-weight: 600;
     letter-spacing: -1px;
     margin: 0 0 2.4rem;
+    filter: drop-shadow(var(--emphasis-shadow));
 }
 
 h1 {
@@ -134,6 +138,7 @@ pre {
     background-color: var(--code-bg-color);
     padding: 2.4rem;
     margin-bottom: 2.4rem;
+    border-radius: 1rem;
 
     font-family: var(--monospace);
     font-size: 1.4rem;
@@ -163,10 +168,10 @@ em, strong {
 
 article {
     background-color: var(--card-color);
-    padding: 2.4rem;
+    padding: 2.4rem 4.8rem;
     margin: 0 0 2.4rem 0;
-    border-radius: 4px;
-    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    border-radius: 3rem;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 article:last-child {
@@ -231,10 +236,11 @@ article nav {
 
 .main-menu a {
     display: block;
-    width: calc(100% - 3.2rem);
     padding: 1.6rem;
-    margin: 0 auto 1.6rem;
-    border-radius: 4px;
+    margin: 0 0 0.8rem;
+    border-radius: 3rem;
+    background-color: var(--menu-item-bg-not-selected);
+    filter: drop-shadow(var(--emphasis-shadow));
 }
 
 .main-menu a:active {
@@ -242,16 +248,13 @@ article nav {
     top: 2px;
 }
 
+.main-menu a.selected {
+    background-color: var(--menu-item-bg-selected);
+    box-shadow: var(--card-shadow);
+}
+
 .main-menu a:hover {
-    background-color: var(--hover-menu-item-color);
-}
-
-.main-menu .selected a {
-    background-color: var(--selected-menu-item-bg-color);
-}
-
-.main-menu .selected a:hover {
-    background-color: var(--hover-selected-menu-item-color);
+    background-color: var(--menu-item-bg-hover);
 }
 
 @media (max-width: 1000px) {

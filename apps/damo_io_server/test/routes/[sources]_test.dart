@@ -3,12 +3,12 @@ import 'dart:io';
 import 'package:damo_io_server/app_dependencies.dart';
 import 'package:test/test.dart';
 
-import '../../routes/index.dart' as route;
+import '../../routes/[sources].dart' as route;
 import '../articles/builders.dart';
 import '../test_support/test_request_context.dart';
 
 void main() {
-  test('GET /', () async {
+  test('GET /about,social,blog', () async {
     final dependencies = AppDependencies.defaults();
     final context = dependencies.createTestRequestContext();
     final article = buildArticleRecord(
@@ -18,7 +18,7 @@ void main() {
 
     dependencies.articles.upsert(article);
 
-    final response = await route.onRequest(context);
+    final response = await route.onRequest(context, 'about,social,blog');
 
     expect(response.statusCode, equals(HttpStatus.ok));
 

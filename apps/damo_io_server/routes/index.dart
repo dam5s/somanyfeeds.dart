@@ -1,27 +1,11 @@
-import 'package:damo_io_server/articles/list_articles.dart';
+import 'dart:io';
+
+import 'package:damo_io_server/sources/source.dart';
+import 'package:damo_io_server/sources/source_link_presenter.dart';
 import 'package:dart_frog/dart_frog.dart';
-import 'package:html_support/html_support.dart';
 
-Future<Response> onRequest(RequestContext context) async {
-  final listArticles = context.read<ListArticles>();
-  final articles = listArticles.execute();
-  final layout = await context.read<Future<Layout>>();
+final defaultSources = [Source.about, Source.social, Source.blog];
+final defaultLocation = SourceLinkPresenter.path(defaultSources);
 
-  final menu = ul(
-    attrs: {'class': 'main-menu'},
-    children: [
-      li(child: a(text: 'About', attrs: {'href': '#'})),
-      li(child: a(text: 'Social', attrs: {'href': '#'})),
-      li(child: a(text: 'Code', attrs: {'href': '#'})),
-      li(child: a(text: 'Blog', attrs: {'href': '#'})),
-    ],
-  );
-
-  return Response(
-    body: layout.render({
-      'menu': menu,
-      'main': articles,
-    }),
-    headers: {'Content-Type': 'text/html'},
-  );
-}
+Future<Response> onRequest(RequestContext context) async =>
+    Response(statusCode: HttpStatus.found, headers: {'location': defaultLocation});
