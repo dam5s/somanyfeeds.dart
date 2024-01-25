@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:damo_io_server/app_dependencies.dart';
-import 'package:damo_io_server/articles/list_articles.dart';
+import 'package:damo_io_server/source_articles/list_articles_by_sources.dart';
 import 'package:dart_frog/dart_frog.dart';
 import 'package:html_support/html_support.dart';
 import 'package:shelf_cors_headers/shelf_cors_headers.dart' as shelf;
@@ -14,7 +14,12 @@ Handler middleware(Handler handler) {
   return handler
       .configureCors()
       .use(provider<Future<Layout>>((_) => layouts.get(layoutPath)))
-      .use(provider<ListArticles>((_) => ListArticles(repo: appDependencies.articles)));
+      .use(provider<ListArticlesBySources>(
+        (_) => ListArticlesBySources(
+          feedsRepo: appDependencies.feeds,
+          articlesRepo: appDependencies.articles,
+        ),
+      ));
 }
 
 extension Cors on Handler {

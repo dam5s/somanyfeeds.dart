@@ -2,9 +2,13 @@ import 'package:damo_io_server/sources/source.dart';
 import 'package:html_support/html_support.dart';
 
 class SourceLinkPresenter extends HtmlPresenter {
+  static final _defaultSources = [Source.about, Source.social, Source.blog];
+
   static String path(Iterable<Source> sources) {
     return sources.map((it) => it.name).join(',');
   }
+
+  static String defaultPath = path(_defaultSources);
 
   static Set<Source>? tryParsePath(String path) {
     Source? tryParse(String value) => switch (value) {

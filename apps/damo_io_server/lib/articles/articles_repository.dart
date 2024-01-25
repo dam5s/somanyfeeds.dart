@@ -1,9 +1,14 @@
+import 'package:prelude/prelude.dart';
+
 import 'article_record.dart';
 
 final class ArticlesRepository {
   var _articles = List<ArticleRecord>.empty(growable: true);
 
-  Iterable<ArticleRecord> findAll() => List.unmodifiable(_articles);
+  Iterable<ArticleRecord> findAll() => _articles.unmodifiable();
+
+  Iterable<ArticleRecord> findAllByFeedUrls(Set<String> feedUrls) =>
+      _articles.where((article) => feedUrls.contains(article.feedUrl)).unmodifiable();
 
   void upsert(ArticleRecord article) {
     if (_exists(article)) {

@@ -10,7 +10,7 @@ void main() {
     final url = 'file://$path';
     final fileContent = await File(path).readAsString();
     final rawFeed = RawFeed(url: url, content: fileContent);
-    return RssParser().parse(rawFeed);
+    return RssParser().tryParse(rawFeed);
   }
 
   test('parsing mastodon rss', () async {

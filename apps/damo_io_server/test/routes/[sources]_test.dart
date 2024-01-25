@@ -12,7 +12,8 @@ void main() {
     final dependencies = AppDependencies.defaults();
     final context = dependencies.createTestRequestContext();
     final article = buildArticleRecord(
-      url: 'https://blog.example.com/1',
+      url: 'https://blog.damo.io/articles/1',
+      feedUrl: 'https://blog.damo.io/rss.xml',
       title: 'This is an article',
     );
 
@@ -24,6 +25,9 @@ void main() {
 
     final body = await response.body();
     expect(body, contains('<main class="articles">'));
-    expect(body, contains('<h1><a href="https://blog.example.com/1">This is an article</a></h1>'));
+    expect(
+      body,
+      contains('<h1><a href="https://blog.damo.io/articles/1">This is an article</a></h1>'),
+    );
   });
 }
