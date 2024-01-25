@@ -27,5 +27,13 @@ final class RawFeed {
 }
 
 abstract class FeedParser {
-  FeedParsingResult parse(RawFeed feed);
+  ParsedFeed parse(RawFeed feed);
+
+  FeedParsingResult tryParse(RawFeed feed) {
+    try {
+      return Ok(parse(feed));
+    } on Error catch (e) {
+      return Err(FeedParsingError(messages: [e.toString()]));
+    }
+  }
 }

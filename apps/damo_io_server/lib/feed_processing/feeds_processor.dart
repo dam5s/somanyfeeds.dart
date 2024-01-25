@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:damo_io_server/articles/article_record.dart';
 import 'package:damo_io_server/articles/articles_repository.dart';
+import 'package:damo_io_server/feed_parsing/atom_parser.dart';
 import 'package:damo_io_server/feed_parsing/feed_parser.dart';
 import 'package:damo_io_server/feed_parsing/parsed_feed.dart';
 import 'package:damo_io_server/feed_parsing/rss_parser.dart';
@@ -23,6 +24,7 @@ final class FeedsProcessor {
 
   static final _defaultParsers = [
     RssParser(),
+    AtomParser(),
   ];
 
   FeedsProcessor({
@@ -62,7 +64,7 @@ final class FeedsProcessor {
         FeedParsingResult? overallResult;
 
         for (final p in _parsers) {
-          final processorResult = p.parse(download);
+          final processorResult = p.tryParse(download);
 
           switch ((processorResult, overallResult)) {
             case (Ok(:final value), _):
