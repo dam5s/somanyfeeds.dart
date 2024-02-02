@@ -9,3 +9,6 @@ check:
 	melos run format
 	melos test
 	melos run cyclic_dependency_checks
+
+dev:
+	cd apps/damo_io_server; dart run --enable-vm-service main.dart

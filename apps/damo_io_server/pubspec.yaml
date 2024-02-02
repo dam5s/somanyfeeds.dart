@@ -16,6 +16,7 @@ dependencies:
   http: ^1.2.0
   shelf: ^1.4.1
   shelf_hotreload: ^1.4.0
+  shelf_static: ^1.1.2
 
 dev_dependencies:
   lints: ^3.0.0
