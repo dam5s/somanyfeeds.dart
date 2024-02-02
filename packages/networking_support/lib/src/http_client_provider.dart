@@ -1,15 +1,17 @@
+import 'dart:async';
+
 import 'package:http/http.dart';
 
 abstract class HttpClientProvider {
-  T withHttpClient<T>(T Function(Client client) block);
+  Future<T> withHttpClient<T>(FutureOr<T> Function(Client client) block);
 }
 
 class ConcreteHttpClientProvider implements HttpClientProvider {
   @override
-  T withHttpClient<T>(T Function(Client) block) {
+  Future<T> withHttpClient<T>(FutureOr<T> Function(Client) block) async {
     final client = Client();
     try {
-      return block(client);
+      return await block(client);
     } finally {
       client.close();
     }

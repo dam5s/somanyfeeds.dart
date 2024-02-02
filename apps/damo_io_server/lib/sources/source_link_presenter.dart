@@ -5,7 +5,7 @@ class SourceLinkPresenter extends HtmlPresenter {
   static final _defaultSources = [Source.about, Source.social, Source.blog];
 
   static String path(Iterable<Source> sources) {
-    return sources.map((it) => it.name).join(',');
+    return '/${sources.map((it) => it.name).join(',')}';
   }
 
   static String defaultPath = path(_defaultSources);

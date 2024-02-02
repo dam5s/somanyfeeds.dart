@@ -1,9 +1,8 @@
-import 'dart:io';
+import 'package:damo_io_server/app/app_dependencies.dart';
+import 'package:damo_io_server/app/app_server.dart';
+import 'package:shelf_hotreload/shelf_hotreload.dart';
 
-import 'package:damo_io_server/app_dependencies.dart';
-import 'package:dart_frog/dart_frog.dart';
-
-Future<HttpServer> run(Handler handler, InternetAddress ip, int port) {
+Future<void> main() async {
   final dependencies = AppDependencies.shared;
   final runner = dependencies.periodicRunner;
   final processor = dependencies.processor;
@@ -13,5 +12,11 @@ Future<HttpServer> run(Handler handler, InternetAddress ip, int port) {
     every: const Duration(minutes: 5),
   );
 
-  return serve(handler, ip, port);
+  withHotreload(() async {
+    final server = await buildAppServer(dependencies);
+
+    print('Serving at http://${server.address.host}:${server.port}');
+
+    return server;
+  });
 }

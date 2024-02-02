@@ -21,7 +21,7 @@ typedef HttpFuture<T> = Future<HttpResult<T>>;
 extension SendRequest on Client {
   HttpFuture<Response> sendRequest(HttpMethod method, Uri url) async {
     try {
-      final request = Request(method.toString(), url);
+      final request = Request(method.toString(), url)..followRedirects = false;
       final streamedResponse = await send(request);
       final response = await Response.fromStream(streamedResponse);
 
