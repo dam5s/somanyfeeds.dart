@@ -4,10 +4,21 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: subosito/flutter-action@v2
+      - uses: actions/checkout@v4
+      - uses: dart-lang/setup-dart@v1
+
+      - name: 'Setup and tests'
+        run: |
+          make setup
+          make check
+
+      - name: 'Build container archive'
+        run: | 
+          make container
+          docker save damo_io:latest | gzip > damo_io_container.tgz
+
+      - name: 'Save app container'
+        uses: actions/upload-artifact@v4
         with:
-          flutter-version: '3.16.0'
-          channel: 'stable'
-      - run: make setup
-      - run: make check
+          name: damo_io_container
+          path: damo_io_container.tgz

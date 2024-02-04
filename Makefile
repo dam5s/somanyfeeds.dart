@@ -11,4 +11,7 @@ check:
 	melos run cyclic_dependency_checks
 
 dev:
-	cd apps/damo_io_server; dart run --enable-vm-service main.dart
+	cd apps/damo_io_server; USE_HOTRELOAD=true dart run --enable-vm-service main.dart
+
+container:
+	docker build -t damo_io -f deployment/Dockerfile .
