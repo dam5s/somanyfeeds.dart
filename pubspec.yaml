@@ -6,7 +6,6 @@ environment:
 
 dev_dependencies:
   lints: ^3.0.0
-  melos: ^3.2.0
+  melos: ^4.1.0
   cyclic_dependency_checks:
     git: { url: https://github.com/dam5s/cyclic_dependency_checks.git, ref: release/0.6.0 }
-  dart_frog_cli: ^1.1.1
