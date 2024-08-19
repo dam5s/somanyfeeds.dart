@@ -1,4 +1,4 @@
-.PHONY: setup check
+.PHONY: setup check dev container
 
 setup:
 	dart pub get

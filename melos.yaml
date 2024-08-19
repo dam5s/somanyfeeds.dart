@@ -2,7 +2,7 @@ name: somanyfeeds
 
 packages:
   - apps/*
-  - packages/*
+  - pkgs/*
 
 scripts:
   format:
