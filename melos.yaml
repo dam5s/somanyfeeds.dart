@@ -4,6 +4,16 @@ packages:
   - apps/*
   - pkgs/*
 
+command:
+  bootstrap:
+    usePubspecOverrides: true
+    environment:
+      sdk: ^3.5.0
+
+    dev_dependencies:
+      lints: ^4.0.0
+      test: ^1.25.0
+
 scripts:
   format:
     run: dart format . --line-length 100 --set-exit-if-changed

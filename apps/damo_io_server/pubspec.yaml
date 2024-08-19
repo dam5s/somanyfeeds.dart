@@ -2,12 +2,12 @@ name: damo_io_server
 publish_to: none
 
 environment:
-  sdk: ^3.2.0
+  sdk: ^3.5.0
 
 dependencies:
   async_support: 0.0.0
   html_support: 0.0.0
-  intl: ^0.18.1
+  intl: ^0.19.0
   logger: ^2.0.2+1
   networking_support: 0.0.0
   prelude: 0.0.0
@@ -19,6 +19,6 @@ dependencies:
   shelf_static: ^1.1.2
 
 dev_dependencies:
-  lints: ^3.0.0
+  lints: ^4.0.0
   mocktail: ^1.0.0
-  test: ^1.24.0
+  test: ^1.25.0
