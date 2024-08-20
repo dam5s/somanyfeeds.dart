@@ -27,6 +27,6 @@ class IsolateAsyncCompute extends AsyncCompute {
     M message, {
     String? debugLabel,
   }) {
-    return Isolate.run(() => callback(message), debugName: debugLabel);
+    return Isolate.run(() => callback(message));
   }
 }

@@ -8,9 +8,9 @@ import 'package:damo_io_server/feed_parsing/parsed_feed.dart';
 import 'package:damo_io_server/feed_parsing/rss_parser.dart';
 import 'package:damo_io_server/feeds/feed_record.dart';
 import 'package:damo_io_server/feeds/feeds_repository.dart';
+import 'package:logging/logging.dart';
 import 'package:networking_support/networking_support.dart';
 import 'package:prelude/prelude.dart';
-import 'package:logger/logger.dart';
 
 import 'feed_downloader.dart';
 
@@ -20,7 +20,7 @@ final class FeedsProcessor {
   final HttpClientProvider _clientProvider;
   final AsyncCompute _asyncCompute;
   final Iterable<FeedParser> _parsers;
-  final Logger _logger = Logger();
+  final Logger _logger = Logger('FeedsProcessor');
 
   static final _defaultParsers = [
     RssParser(),
@@ -28,13 +28,13 @@ final class FeedsProcessor {
   ];
 
   FeedsProcessor({
-    FeedsRepository? feeds,
-    ArticlesRepository? articles,
+    required FeedsRepository feeds,
+    required ArticlesRepository articles,
     HttpClientProvider? httpClientProvider,
     AsyncCompute? asyncCompute,
     Iterable<FeedParser>? parsers,
-  })  : _feeds = feeds ?? FeedsRepository(),
-        _articles = articles ?? ArticlesRepository(),
+  })  : _feeds = feeds,
+        _articles = articles,
         _clientProvider = httpClientProvider ?? ConcreteHttpClientProvider(),
         _asyncCompute = asyncCompute ?? IsolateAsyncCompute(),
         _parsers = parsers ?? _defaultParsers;
@@ -47,10 +47,10 @@ final class FeedsProcessor {
 
       switch (processingResult) {
         case Ok(value: final feed):
-          _logger.i('Feed processed ${feed.url} with ${feed.articles.length} articles');
+          _logger.info('Feed processed ${feed.url} with ${feed.articles.length} articles');
           await _persistFeedResult(feed);
         case Err(:final error):
-          _logger.e('Error processing feed $feed', error: error);
+          _logger.warning('Error processing feed $feed', error);
       }
     }
   }

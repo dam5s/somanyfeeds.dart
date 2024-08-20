@@ -2,11 +2,11 @@ name: networking_support
 publish_to: none
 
 environment:
-  sdk: ^3.5.0
+  sdk: ^3.4.0
 
 dependencies:
   http: ^1.1.0
-  logger: ^2.0.2+1
+  logging: ^1.2.0
   prelude: 0.0.0
 
 dev_dependencies:

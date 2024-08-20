@@ -2,7 +2,7 @@
 
 ## Dependencies
 
- * Dart 3.2
+ * Dart 3.4
 
 ## Running the build
 

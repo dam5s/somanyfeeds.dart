@@ -1,7 +1,9 @@
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:damo_io_server/app/app_dependencies.dart';
 import 'package:damo_io_server/app/app_server.dart';
+import 'package:logging/logging.dart';
 import 'package:shelf_hotreload/shelf_hotreload.dart';
 
 Future<HttpServer> _startServer(AppDependencies dependencies) async {
@@ -13,6 +15,16 @@ Future<HttpServer> _startServer(AppDependencies dependencies) async {
 }
 
 Future<void> main() async {
+  Logger.root.level = Platform.environment['DEBUG_LOG'] == 'true' ? Level.FINE : Level.INFO;
+  Logger.root.onRecord.listen((record) {
+    log(
+      record.message,
+      time: record.time,
+      level: record.level.value,
+      name: record.loggerName,
+    );
+  });
+
   final dependencies = AppDependencies.shared;
   final runner = dependencies.periodicRunner;
   final processor = dependencies.processor;

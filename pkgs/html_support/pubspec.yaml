@@ -2,7 +2,7 @@ name: html_support
 publish_to: none
 
 environment:
-  sdk: ^3.5.0
+  sdk: ^3.4.0
 
 dependencies:
   prelude: 0.0.0

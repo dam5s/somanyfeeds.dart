@@ -1,5 +1,5 @@
 import 'package:http/http.dart';
-import 'package:logger/logger.dart';
+import 'package:logging/logging.dart';
 import 'package:prelude/prelude.dart';
 
 import 'async_compute.dart';
@@ -27,7 +27,7 @@ extension SendRequest on Client {
 
       return Ok(response);
     } on Exception catch (e) {
-      _logger.w("Exception during request $method $url", error: e);
+      _logger.warning("Exception during request $method $url", e);
       return Err(HttpConnectionError(e));
     }
   }
@@ -38,7 +38,7 @@ extension ResponseHandling on HttpResult<Response> {
         if (response.statusCode == expected) {
           return Ok(response);
         } else {
-          _logger.w("Unexpected status code, expected $expected, got ${response.statusCode}");
+          _logger.warning("Unexpected status code, expected $expected, got ${response.statusCode}");
           return Err(HttpUnexpectedStatusCodeError(expected, response.statusCode));
         }
       });
@@ -52,7 +52,7 @@ extension ResponseHandling on HttpResult<Response> {
               final object = decode(jsonObject);
               return Ok(object);
             } on TypeError catch (e) {
-              _logger.e('Failed to parse json: ${response.body}', error: e);
+              _logger.warning('Failed to parse json: ${response.body}', e);
               return Err(HttpDeserializationError(e, response.body));
             }
           },
@@ -63,4 +63,4 @@ extension ResponseHandling on HttpResult<Response> {
   }
 }
 
-final _logger = Logger();
+final _logger = Logger('http');
