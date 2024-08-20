@@ -8,8 +8,6 @@ import 'package:shelf_static/shelf_static.dart';
 import 'app_handler.dart';
 
 Future<HttpServer> buildAppServer(AppDependencies dependencies, {int? port}) async {
-  port ??= int.tryParse(Platform.environment['PORT'] ?? '8080') ?? 8080;
-
   final pipeline = Pipeline() //
       .addMiddleware(logRequests())
       .addHandler(
@@ -19,7 +17,7 @@ Future<HttpServer> buildAppServer(AppDependencies dependencies, {int? port}) asy
             .handler,
       );
 
-  final server = await serve(pipeline, '0.0.0.0', port);
+  final server = await serve(pipeline, '0.0.0.0', port ?? 0);
 
   server.autoCompress = true;
 

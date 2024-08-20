@@ -6,16 +6,9 @@ import 'package:damo_io_server/app/app_server.dart';
 import 'package:logging/logging.dart';
 import 'package:shelf_hotreload/shelf_hotreload.dart';
 
-Future<HttpServer> _startServer(AppDependencies dependencies) async {
-  final server = await buildAppServer(dependencies);
+void _configureLogging({required bool printDebugLogs}) {
+  Logger.root.level = printDebugLogs ? Level.FINE : Level.INFO;
 
-  print('Serving at http://${server.address.host}:${server.port}');
-
-  return server;
-}
-
-Future<void> main() async {
-  Logger.root.level = Platform.environment['DEBUG_LOG'] == 'true' ? Level.FINE : Level.INFO;
   Logger.root.onRecord.listen((record) {
     log(
       record.message,
@@ -24,6 +17,22 @@ Future<void> main() async {
       name: record.loggerName,
     );
   });
+}
+
+Future<HttpServer> _startServer(AppDependencies dependencies, int port) async {
+  final server = await buildAppServer(dependencies, port: port);
+
+  Logger('server').info('Serving at http://${server.address.host}:${server.port}');
+
+  return server;
+}
+
+Future<void> main() async {
+  final printDebugLogs = Platform.environment['PRINT_DEBUG_LOGS'] == 'true';
+  final useHotreload = Platform.environment['USE_HOTRELOAD'] == 'true';
+  final port = int.tryParse(Platform.environment['PORT'] ?? '8080') ?? 8080;
+
+  _configureLogging(printDebugLogs: printDebugLogs);
 
   final dependencies = AppDependencies.shared;
   final runner = dependencies.periodicRunner;
@@ -34,11 +43,9 @@ Future<void> main() async {
     every: const Duration(minutes: 5),
   );
 
-  final useHotreload = Platform.environment['USE_HOTRELOAD'] == 'true';
-
   if (useHotreload) {
-    withHotreload(() => _startServer(dependencies));
+    withHotreload(() => _startServer(dependencies, port));
   } else {
-    await _startServer(dependencies);
+    await _startServer(dependencies, port);
   }
 }

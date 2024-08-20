@@ -4,7 +4,6 @@ import 'package:damo_io_server/feeds/feeds_repository.dart';
 import 'package:test/test.dart';
 
 void main() {
-
   test('process feeds', () async {
     final feeds = FeedsRepository();
     final articles = ArticlesRepository();

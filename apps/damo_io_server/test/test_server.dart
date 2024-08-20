@@ -16,7 +16,7 @@ class TestServer {
 
   static Future<TestServer> start() async {
     final dependencies = AppDependencies.defaults();
-    final server = await buildAppServer(dependencies, port: 0);
+    final server = await buildAppServer(dependencies);
     return TestServer._(server, dependencies);
   }
 
