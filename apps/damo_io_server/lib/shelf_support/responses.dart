@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:shelf/shelf.dart';
+import 'package:jaspr/server.dart';
 
 abstract class Responses {
   static Response redirect(String location) =>
@@ -8,6 +8,10 @@ abstract class Responses {
 
   static Response badRequest() => Response(HttpStatus.badRequest);
 
-  static Response html(String body) =>
-      Response(200, body: body, headers: {'Content-Type': 'text/html'});
+  static Future<Response> html(Component component) async {
+    final document = Document(base: '/', body: component);
+    final renderedHtml = await renderComponent(document);
+
+    return Response(200, body: renderedHtml, headers: {'Content-Type': 'text/html'});
+  }
 }

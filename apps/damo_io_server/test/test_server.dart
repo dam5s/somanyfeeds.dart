@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:path/path.dart';
 import 'package:damo_io_server/app/app_dependencies.dart';
 import 'package:damo_io_server/app/app_server.dart';
 import 'package:http/http.dart';
@@ -16,8 +17,16 @@ class TestServer {
 
   static Future<TestServer> start() async {
     final dependencies = AppDependencies.defaults();
+
+    await _setWorkaroundForStaticWebDirResolution();
+
     final server = await buildAppServer(dependencies);
     return TestServer._(server, dependencies);
+  }
+
+  static Future<void> _setWorkaroundForStaticWebDirResolution() async {
+    final targetDir = dirname(Platform.script.toFilePath());
+    await File(join(targetDir, 'pubspec.yaml')).create();
   }
 
   Future<Response?> request(HttpMethod method, String path) async =>

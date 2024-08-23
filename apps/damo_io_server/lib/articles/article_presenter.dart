@@ -1,7 +1,6 @@
 import 'package:damo_io_server/articles/article_record.dart';
-import 'package:html_support/html_support.dart';
 
-class ArticlePresenter extends HtmlPresenter {
+class ArticlePresenter {
   final String feedUrl;
   final String url;
   final String title;
@@ -23,14 +22,4 @@ class ArticlePresenter extends HtmlPresenter {
         content: record.content,
         publishedAt: record.publishedAt.millisecondsSinceEpoch,
       );
-
-  @override
-  String toHtml() => article(
-        children: [
-          header(children: [
-            h1(child: a(attrs: {'href': url}, text: title)),
-          ]),
-          section(text: content),
-        ],
-      ).toHtml();
 }
