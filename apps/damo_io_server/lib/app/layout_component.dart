@@ -1,10 +1,9 @@
 import 'package:jaspr/jaspr.dart';
 
 class LayoutComponent extends StatelessComponent {
-  final Component menu;
   final Iterable<Component> children;
 
-  LayoutComponent({super.key, required this.menu, required this.children});
+  LayoutComponent(this.children, {super.key});
 
   @override
   Iterable<Component> build(BuildContext context) sync* {
@@ -19,11 +18,8 @@ class LayoutComponent extends StatelessComponent {
       ],
     );
 
-    yield aside([
-      h1([text('damo.io')]),
-      menu,
-    ]);
-
     yield* children;
+
+    yield script([], src: '/htmx-2.0.2.min.js');
   }
 }

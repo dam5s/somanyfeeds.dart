@@ -1,12 +1,11 @@
 import 'package:damo_io_server/app/app_dependencies.dart';
 import 'package:damo_io_server/app/layout_component.dart';
-import 'package:damo_io_server/app/menu_component.dart';
 import 'package:damo_io_server/shelf_support/responses.dart';
 import 'package:damo_io_server/source_articles/articles_component.dart';
 import 'package:damo_io_server/source_articles/list_articles_by_sources.dart';
 import 'package:damo_io_server/sources/source.dart';
 import 'package:damo_io_server/sources/source_link_presenter.dart';
-import 'package:shelf/shelf.dart';
+import 'package:jaspr/server.dart';
 
 Future<Handler> buildAppHandler(AppDependencies dependencies) async {
   final action = ListArticlesBySources(
@@ -27,14 +26,13 @@ Future<Handler> buildAppHandler(AppDependencies dependencies) async {
 
     final articles = action.execute(selectedSources);
 
-    final menuLinks =
+    final menuItems =
         Source.values.map((it) => SourceLinkPresenter(source: it, selected: selectedSources));
 
-    return Responses.html(
-      LayoutComponent(
-        menu: MenuComponent(menuLinks),
-        children: [ArticlesComponent(articles)],
-      ),
-    );
+    final isHtmxRequest = request.headers.containsKey('HX-Request');
+
+    return isHtmxRequest
+        ? Responses.partialHtml(ArticlesComponent(menuItems, articles))
+        : Responses.htmlDocument(LayoutComponent([ArticlesComponent(menuItems, articles)]));
   };
 }

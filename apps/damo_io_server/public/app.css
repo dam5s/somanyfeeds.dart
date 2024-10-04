@@ -43,49 +43,64 @@ body {
     box-sizing: border-box;
 }
 
-body > main {
-    max-width: 80rem;
-    margin-left: 40rem;
-    padding: 2.4rem;
-    min-height: 100vh;
+#content {
+    display: flex;
+    height: 100vh;
 }
 
-body > aside {
+#content > aside {
     background-color: var(--card-color);
-    position: fixed;
-    left: 0;
-    top: 0;
-    bottom: 0;
     width: 40rem;
     padding: 2.4rem 4.8rem;
     text-align: center;
     box-shadow: 2px 0 2px rgba(0, 0, 0, 0.3);
+
+    h1 {
+        font-family: var(--serif);
+        color: var(--text-color);
+        font-weight: 600;
+        letter-spacing: -2px;
+        margin: 2.4rem 0;
+    }
 }
 
-body > aside h1 {
-    font-family: var(--serif);
-    color: var(--text-color);
-    font-weight: 600;
-    letter-spacing: -2px;
-    margin: 2.4rem 0;
+#content > main {
+    padding: 2.4rem;
+    height: 100vh;
+    overflow-y: auto;
+    flex: 1;
+
+    article {
+        max-width: 80rem;
+    }
 }
 
 @media (max-width: 1000px) {
-    body > main {
-        padding-top: 14rem;
-        padding-bottom: 1.6rem;
-        margin: 0;
-        max-width: none;
+    #content {
+        display: block;
+        height: auto;
     }
 
-    body > aside {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
+    #content > aside {
         width: 100%;
-        height: 12.4rem;
         box-shadow: var(--card-shadow);
+        padding: 0;
+
+        h1 {
+            margin: 0;
+        }
+    }
+
+    #content > main {
+        padding-top: 1.6rem;
+        padding-bottom: 1.6rem;
+        margin: 0;
+        height: auto;
+        max-width: none;
+
+        article {
+            max-width: none;
+        }
     }
 }
 
@@ -126,11 +141,11 @@ ol {
 
 ul, ol {
     margin-bottom: 1.6rem;
-}
 
-ul li, ol li {
-    margin-left: 3.2rem;
-    margin-bottom: .4rem;
+    li {
+        margin-left: 3.2rem;
+        margin-bottom: .4rem;
+    }
 }
 
 pre {
@@ -172,39 +187,44 @@ article {
     margin: 0 0 2.4rem 0;
     border-radius: 3rem;
     box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+
+    header {
+        margin-bottom: 1.6rem;
+        overflow: hidden;
+
+        h2 {
+            margin: 0;
+            float: right;
+            font-size: 1.2rem;
+            letter-spacing: -0.2px;
+            color: var(--article-date-text-color);
+        }
+    }
+
+    h1 {
+        a:link, a:visited {
+            color: var(--title-color);
+        }
+    }
+
+    img {
+        max-width: 100%;
+    }
+
+    section {
+        line-height: 180%;
+    }
+
+    nav {
+        display: flex;
+        justify-content: end;
+    }
 }
 
 article:last-child {
     margin-bottom: 0;
 }
 
-article header {
-    margin-bottom: 1.6rem;
-    overflow: hidden;
-}
-
-article header h2 {
-    margin: 0;
-}
-
-article h1 a:link, article h1 a:visited {
-    color: var(--title-color);
-}
-
-article header h2 {
-    float: right;
-    font-size: 1.2rem;
-    letter-spacing: -0.2px;
-    color: var(--article-date-text-color);
-}
-
-article img {
-    max-width: 100%;
-}
-
-article section {
-    line-height: 180%;
-}
 
 article.Social {
     background-image: url('data:image/svg+xml;utf8,%3Csvg%20height%3D%222500%22%20width%3D%222331%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%22-0.41%200.22%20747.62%20801.4499999999999%22%3E%3Cpath%20d%3D%22M729.94%20479.5c-10.96%2056.4-98.17%20118.12-198.34%20130.08-52.23%206.23-103.66%2011.96-158.49%209.44-89.68-4.1-160.45-21.4-160.45-21.4%200%208.73.54%2017.04%201.62%2024.81%2011.66%2088.52%2087.76%2093.82%20159.84%2096.29%2072.76%202.49%20137.55-17.94%20137.55-17.94l2.99%2065.79s-50.89%2027.32-141.55%2032.35c-50%202.75-112.07-1.26-184.37-20.39C31.94%20737.02%204.97%20569.86.85%20400.26-.41%20349.9.37%20302.42.37%20262.7.37%2089.27%20113.99%2038.44%20113.99%2038.44%20171.28%2012.12%20269.59%201.06%20371.79.22h2.52c102.19.84%20200.57%2011.9%20257.86%2038.22%200%200%20113.62%2050.83%20113.62%20224.26%200%200%201.42%20127.96-15.85%20216.8%22%20fill%3D%22%23888%22%2F%3E%3Cpath%20d%3D%22M611.77%20276.16v209.99h-83.2V282.33c0-42.97-18.07-64.77-54.23-64.77-39.98%200-60.01%2025.86-60.01%2077.02v111.57h-82.71V294.58c0-51.16-20.04-77.02-60.01-77.02-36.16%200-54.24%2021.8-54.24%2064.77v203.82h-83.19V276.16c0-42.92%2010.93-77.03%2032.88-102.26%2022.63-25.23%2052.27-38.17%2089.07-38.17%2042.57%200%2074.81%2016.37%2096.12%2049.1l20.72%2034.74%2020.73-34.74c21.31-32.73%2053.55-49.1%2096.12-49.1%2036.79%200%2066.44%2012.94%2089.07%2038.17%2021.95%2025.23%2032.88%2059.34%2032.88%20102.26z%22%20fill%3D%22%23fff%22%2F%3E%3C%2Fsvg%3E');
@@ -221,40 +241,35 @@ article.Social section {
     margin-bottom: 1.6rem;
 }
 
-article nav {
-    display: flex;
-    justify-content: end;
-}
-
 .main-menu {
     list-style-type: none;
-}
 
-.main-menu li {
-    margin: 0;
-}
+    li {
+        margin: 0;
+    }
 
-.main-menu a {
-    display: block;
-    padding: 1.6rem;
-    margin: 0 0 0.8rem;
-    border-radius: 3rem;
-    background-color: var(--menu-item-bg-not-selected);
-    filter: drop-shadow(var(--emphasis-shadow));
-}
+    a {
+        display: block;
+        padding: 1.6rem;
+        margin: 0 0 0.8rem;
+        border-radius: 3rem;
+        background-color: var(--menu-item-bg-not-selected);
+        filter: drop-shadow(var(--emphasis-shadow));
+    }
 
-.main-menu a:active {
-    position: relative;
-    top: 2px;
-}
+    a:active {
+        position: relative;
+        top: 2px;
+    }
 
-.main-menu a.selected {
-    background-color: var(--menu-item-bg-selected);
-    box-shadow: var(--card-shadow);
-}
+    a.selected {
+        background-color: var(--menu-item-bg-selected);
+        box-shadow: var(--card-shadow);
+    }
 
-.main-menu a:hover {
-    background-color: var(--menu-item-bg-hover);
+    a:hover {
+        background-color: var(--menu-item-bg-hover);
+    }
 }
 
 @media (max-width: 1000px) {
@@ -262,10 +277,11 @@ article nav {
         display: flex;
         gap: 0.8rem;
         justify-content: center;
-    }
+        margin: 0 0 0.8rem;
 
-    .main-menu a {
-        width: auto;
-        padding: 0.8rem 1.6rem;
+        a {
+            width: auto;
+            padding: 1.2rem 2.4rem;
+        }
     }
 }

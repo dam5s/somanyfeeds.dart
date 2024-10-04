@@ -5,16 +5,17 @@ class SourceLinkPresenter {
 
   static String defaultPath = _path(_defaultSources);
 
-  static Set<Source>? tryParsePath(String path) {
-    Source? tryParse(String value) => switch (value) {
-          'about' => Source.about,
-          'social' => Source.social,
-          'code' => Source.code,
-          'blog' => Source.blog,
-          String() => null,
-        };
+  static Source? _tryParse(String value) => //
+      switch (value) {
+        'about' => Source.about,
+        'social' => Source.social,
+        'code' => Source.code,
+        'blog' => Source.blog,
+        String() => null,
+      };
 
-    final mapped = path.split(',').map(tryParse);
+  static Set<Source>? tryParsePath(String path) {
+    final mapped = path.split(',').map(_tryParse);
 
     if (mapped.any((src) => src == null)) {
       return null;
