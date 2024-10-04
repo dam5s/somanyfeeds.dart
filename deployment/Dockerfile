@@ -18,7 +18,6 @@ FROM scratch
 COPY --from=build /runtime/ /
 COPY --from=build /build/server /app/server
 COPY --from=build /workspace/apps/damo_io_server/public /app/public/
-COPY --from=build /workspace/apps/damo_io_server/resources /app/resources/
 
 WORKDIR /app
 
