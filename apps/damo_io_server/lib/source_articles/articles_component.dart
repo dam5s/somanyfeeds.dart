@@ -74,8 +74,10 @@ class _ArticleComponent extends StatelessComponent {
         ])
       ]),
       section([
-        raw(_article.content),
-      ])
+        span([
+          raw(_article.content),
+        ]),
+      ]),
     ]);
   }
 }
