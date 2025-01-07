@@ -16,25 +16,8 @@ abstract class Responses {
   }
 
   static Future<Response> partialHtml(Component component) async {
-    final binding = _PartialServerAppBinding(component);
-    final renderedHtml = await binding.render();
+    final renderedHtml = await renderComponent(component, standalone: true);
 
     return Response(200, body: renderedHtml, headers: {'Content-Type': 'text/html'});
-  }
-}
-
-class _PartialServerAppBinding extends ServerAppBinding {
-  _PartialServerAppBinding(Component component) {
-    initializeOptions(Jaspr.options);
-    attachRootComponent(component);
-  }
-
-  @override
-  Future<String> render() async {
-    await rootCompleter.future;
-
-    final root = rootElement!.renderObject as MarkupRenderObject;
-
-    return root.renderToHtml();
   }
 }
