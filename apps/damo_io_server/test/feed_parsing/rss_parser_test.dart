@@ -14,7 +14,7 @@ void main() {
   }
 
   test('parsing mastodon rss', () async {
-    final result = await parseFile('test/feed_parsing/mastodon.rss');
+    final result = await parseFile('test/resources/mastodon.rss');
 
     expect(result.isOk(), equals(true));
 
@@ -22,7 +22,7 @@ void main() {
     final url = maybeFeed?.url ?? '';
     final articles = maybeFeed?.articles ?? [];
 
-    expect(url, equals('file://test/feed_parsing/mastodon.rss'));
+    expect(url, equals('file://test/resources/mastodon.rss'));
     expect(articles.length, equals(20));
 
     final article = articles.first;
@@ -36,7 +36,7 @@ void main() {
   });
 
   test('parsing blog rss', () async {
-    final result = await parseFile('test/feed_parsing/blog.xml');
+    final result = await parseFile('test/resources/blog.xml');
 
     expect(result.isOk(), equals(true));
 
@@ -46,5 +46,9 @@ void main() {
 
     expect(articles.length, equals(5));
     expect(article.publishedAt, equals(DateTime.utc(2021, 11, 21, 19, 12, 00)));
+
+    final errorHandlingArticleTitle = 'Error handling in Kotlin and any modern static type system';
+    final errorHandlingArticle = articles.firstWhere((it) => it.title == errorHandlingArticleTitle);
+    expect(errorHandlingArticle.content, contains('Enter Kotlin’s sealed classes'));
   });
 }
