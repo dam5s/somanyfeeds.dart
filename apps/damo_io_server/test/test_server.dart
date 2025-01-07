@@ -18,15 +18,8 @@ class TestServer {
   static Future<TestServer> start() async {
     final dependencies = AppDependencies.defaults();
 
-    await _setWorkaroundForStaticWebDirResolution();
-
     final server = await buildAppServer(dependencies);
     return TestServer._(server, dependencies);
-  }
-
-  static Future<void> _setWorkaroundForStaticWebDirResolution() async {
-    final targetDir = dirname(Platform.script.toFilePath());
-    await File(join(targetDir, 'pubspec.yaml')).create();
   }
 
   Future<Response?> request(HttpMethod method, String path) async =>
